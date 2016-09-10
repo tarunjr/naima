@@ -10,7 +10,7 @@ var conditionsSchema = new Schema({
       	name: String
     },
     data: {
-    	clinical: [{id:String, name:String}],
+    	clinical: [{id:String, name:String, value:String}],
     	test: [{id:String, name:String}]
     }
   });
