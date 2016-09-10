@@ -1,21 +1,21 @@
-{
-	patient: {
-		name: "Rambai",
-		age: 32,
-		address: {
-			village: "Ambegaon",
-			subDistrict: "Mulshi",
-			district: "Pune",
-		}
-	},
-	case: [ 
-		{
-			status: "Open",					// Open, Diagnosed, Close
-			owner:"doctor", 				// Person who has to act on this
-			doctor: "Vikas Mehta"
-			provider: "Ramlal Bhau"	
+	{	
+		patient: {
+			id:"PT-01",
+			name: "Rambai"
+		}, 
+		doctor: {
+			id:"DR-01",
+			name: "Rambai"
 		},
-		clinical:[
+		provider: {
+			id:"PR-01",
+			name: "Shyam Lal"
+		},
+		status: "open",
+		owner: "doctor",
+		
+		data : {
+			clinical:[
 			{
 				id: "ID-01",
 				name: "Abdomain Pain",
@@ -25,18 +25,29 @@
 				id:"ID-02",
 				name: "Bloating",
 				value: "Yes"
-			}
-		],
-		test: [
+			}],
+			test: [
 		
-		],
+			]	
+		},
+		pendingdata : {
+			clinical:[
+			{
+				id: "ID-01",
+				name: "Abdomain Pain"
+			},
+			{
+				id:"ID-02",
+				name: "Bloating"
+			}],
+			test: [ 
+			]	
+		}
 		prescription: {
 			date: 12/10/2016,
 			medicines: [{ name: "Ciplox", intake:"2 times a day beofre food", duration="5d"},
 						{ name: "Cough Syrup", intake:"1 in the morning", duration="3d"}],
-			therapies: [{ name: "Warm water garagle", notes:"In the morning" , duration="1w"}],
 			notes: "Avoid milk, spicy food.",
 			review: "2w"
 		}
-	
-	}]
+	}
