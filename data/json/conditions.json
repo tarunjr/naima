@@ -4,8 +4,8 @@
 	speciality: { id:"SP_GST", name: "Gastrology"},
 	data: {
 		clinical: [
-			{id:"CS-01", name: "Abdomen Pain", Value="Yes"},
-			{id:"CS-02", name: "Nausea", Value="No"}
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"},
+			{id:"CS-02", name: "Nausea", Value:"No"}
 		],
 		test: []
 	}
@@ -16,8 +16,8 @@
 	speciality: { id:"SP_GST", name: "Gastrology"},
 	data: {
 		clinical: [
-			{id:"CS-01", name: "Abdomen Pain", Value="No"},
-			{id:"CS-02", name: "Nausea", Value="Yes"}
+			{id:"CS-01", name: "Abdomen Pain", Value:"No"},
+			{id:"CS-02", name: "Nausea", Value:"Yes"}
 		],
 		test: []
 	}	
@@ -28,8 +28,8 @@
 	speciality: { id:"SP-01", name: "Gastrology"},
 	data: {
 		clinical: [
-			{id:"CS-01", name: "Abdomen Pain",Value="Yes"},
-			{id:"CS-02", name: "Nausea",Value="Yes"}
+			{id:"CS-01", name: "Abdomen Pain",Value:"Yes"},
+			{id:"CS-02", name: "Nausea",Value:"Yes"}
 		],
 		test: []
 	}
