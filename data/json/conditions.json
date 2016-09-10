@@ -1,0 +1,21 @@
+{
+	id: "GST-O1",
+	name: "Abdomen Pain",
+	speciality:"Gastronentology"
+	clinical: [],
+	test: []
+}
+{
+	id: "GST-O2",
+	name: "Abdomen Pain",
+	speciality:"Gastronentology"
+	clinical: [],
+	test: []
+}
+{
+	id: "GST-O3",
+	name: "Abdomen Pain",
+	speciality:"Gastronentology"
+	clinical: [],
+	test: []
+}

@@ -1,0 +1,11 @@
+doctor: {
+		
+		name: "Vikram Mehta",
+		age: 32,
+		address: {
+			village: "Ambegaon",
+			subDistrict: "Mulshi",
+			district: "Pune",
+		},
+		speciality: ["Gastrology", "Internal Medicine"]
+	}
