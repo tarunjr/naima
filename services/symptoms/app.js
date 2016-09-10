@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 var express = require('express');
+var bodyParser = require('body-parser')
 
 var app = express()
 
 var db = mongoose.connection;
+
+app.use(bodyParser.json())
 
 db.on('error', console.error);
 db.once('open', function() {
@@ -17,7 +20,7 @@ var SymptomRoutes = require('./routes/routes.js')(app);
 /*
 app.get('/symptoms', function (req, res) {
   Symptoms.findOne({id: 'STD-02'}, function(err, symptom) {
-    if (err) 
+    if (err)
       res.send(JSON.stringify({}));
     else
       res.send(JSON.stringify(symptom));

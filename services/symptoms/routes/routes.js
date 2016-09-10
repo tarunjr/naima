@@ -7,5 +7,17 @@ module.exports = function (app, model) {
 	app.get('/symptoms/standard/', symptoms.getStandard);
 	app.get('/symptoms/clinical', symptoms.getClinical);
 	app.get('/symptoms/diagnostic', symptoms.getDiagnostic);
-  	app.get('/cases', cases.get);
+
+	app.get('/cases/open/cp/:id', cases.get_open_cp_data);
+	app.get('/cases/open/doc/:id', cases.get_open_doc_data);
+	app.get('/cases/one/:id', cases.get_one_case);
+	app.get('/cases/pending/cp/:id', cases.get_pending_cp_data);
+	app.get('/cases/pending/doc/:id', cases.get_pending_doc_data);
+	app.get('/cases/closed/cp/:id', cases.get_closed_cp_data);
+
+	app.get('/cases/existing/:patientid', cases.get_existing_patient_data);
+
+	app.post('/cases/one/:id',cases.put_case_data);
+	app.post('/cases/new',cases.put_new_case_data);
+
 }
