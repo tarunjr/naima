@@ -4,3 +4,4 @@ mongoimport --db test --collection cases --drop --file  cases.json
 mongoimport --db test --collection conditions --drop --file  conditions.json
 mongoimport --db test --collection doctors --drop --file  doctors.json
 mongoimport --db test --collection patients --drop --file  patients.json
+mongoimport --db test --collection associationrules --drop --file associationrules.json
