@@ -1,0 +1,5 @@
+
+mongoimport --db test --collection symptoms --drop --file  symptom.json
+mongoimport --db test --collection cases --drop --file  cases.json
+mongoimport --db test --collection conditions --drop --file  conditions.json
+mongoimport --db test --collection doctors --drop --file  doctors.json
