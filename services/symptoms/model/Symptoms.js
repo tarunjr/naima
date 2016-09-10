@@ -8,7 +8,8 @@ var symptomsSchema = new Schema({
   	info: {
     	title: String,
       	name: String,
-      	format: String
+      	format: String,
+      	options: [String]
   	}
   });
 module.exports = mongoose.model('Symptoms', symptomsSchema);
