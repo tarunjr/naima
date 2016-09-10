@@ -1,63 +1,61 @@
 {
 	id: "STD-01",
-	type:"standard",
-	value: {
+	format:"standard",
+	info:{
 		title:"Enter Weight?",
 		name: "Weight",
-		type: "Numeric"
+		format: "Numeric"
 	}
 }
 {
 	id: "STD-02",
-	type:"standard",
-	value: {
+	format:"standard",
+	info:{
 		title:"Enter Pulse count?",
 		name: "Pulse",
-		type: "Numeric"
+		format: "Numeric"
 	}
 }
 {
 	id: "CS-01",
-	value: {
+	info:{
 		title: "Where is the abodomen pain?",
 		name: "Abdomen Pain",
-		type: "List",
-		values: ["UpperLeft", "UpperRigth"]
+		format: "List"
 	}
 }
 {
 	id: "CS-02",
-	value: {
+	info:{
 		title: "Did you have nausea?",
 		name: "Nausea",
-		type: "Boolean"
+		format: "Boolean"
 	}
 }
 {
 	id: "CS-03",
-	type:"clinical",
-	value: {
+	format:"clinical",
+	info:{
 		title: "Did you vomit?",
 		name: "Vommiting",
-		type: "Boolean"
+		format: "Boolean"
 	}
 }
 {
 	id: "CS-04",
-	type: "clinical",
-	value: {
+	format: "clinical",
+	info:{
 		title: "Nature of stool?",
 		name: "Stool",
-		type: "Set",
-		values: "[Hard, Soft, Semi-Solid, Slimy]"
+		format: "Set"
 	}
 }
 {
 	id: "DT-01",
-	type: "diagnsotic",
-	value: {
+	format: "diagnsotic",
+	info:{
 		title: "What is the RBC count?",
 		name: "RBC",
-		type: "Numeric"
+		format: "Numeric"
 	}
 }
