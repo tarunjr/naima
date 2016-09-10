@@ -22,7 +22,8 @@
 	info:{
 		title: "Where is the abodomen pain?",
 		name: "Abdomen Pain",
-		format: "List"
+		format: "List",
+		options: ["Upper Left", "Upper Right", "Lower abdomen"]
 	}
 }
 {
@@ -38,9 +39,10 @@
 	id: "CS-03",
 	format:"clinical",
 	info:{
-		title: "Did you vomit?",
+		title: "Did you vomit, enter ?",
 		name: "Vommiting",
-		format: "Boolean"
+		format: "List",
+		options: ["Never","Once","Twice","More"]
 	}
 }
 {
@@ -49,7 +51,7 @@
 	info:{
 		title: "Nature of stool?",
 		name: "Stool",
-		format: "Set",
+		format: "list",
 		options: ["Hard","Soft","Liquid"]
 	}
 }

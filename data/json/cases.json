@@ -17,28 +17,32 @@
 		data : {
 			clinical:[
 			{
-				id: "ID-01",
-				name: "Abdomain Pain",
-				value: ["UpperLeft", "UpperRigth"]
+				id: "CS-05",
+				name: "Nausea",
+				value: "Yes"
 			},
 			{
-				id:"ID-02",
-				name: "Bloating",
-				value: "Yes"
+				id:"CS-03",
+				name: "Vommiting",
+				value: "No"
 			}],
 			test: [
-		
+			{
+				id:"DT-03",
+				name: "X-Ray report",
+				value: "No issue with rib cage, spinal cord."
+			}	
 			]	
 		},
 		pendingdata : {
 			clinical:[
 			{
-				id: "ID-01",
-				name: "Abdomain Pain"
+				id: "CS-11",
+				name: "Constipation"
 			},
 			{
-				id:"ID-02",
-				name: "Bloating"
+				id:"CS-10",
+				name: "Flatus"
 			}],
 			test: [ 
 			]	
