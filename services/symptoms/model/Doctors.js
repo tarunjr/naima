@@ -15,4 +15,4 @@ var doctorsSchema = new Schema({
   		name: String
   	}]
   });
-module.exports = mongoose.model('Docotors', doctorsSchema);
+module.exports = mongoose.model('Doctors', doctorsSchema);
