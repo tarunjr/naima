@@ -1,11 +1,24 @@
-doctor: {
-		
-		name: "Vikram Mehta",
-		age: 32,
-		address: {
-			village: "Ambegaon",
-			subDistrict: "Mulshi",
-			district: "Pune",
-		},
-		speciality: ["Gastrology", "Internal Medicine"]
-	}
+{
+	name: "Vikram Mehta",
+	address: {
+		village: "Ambegaon",
+		subDistrict: "Mulshi",
+		district: "Pune",
+	},
+	speciality: [
+		{ id:"SP_GST", name: "Gastrology"},
+		{ id:"SP_INT", name:"Internal Medicine"}
+	]
+}
+{
+	name: "Vikram Mehta",
+	address: {
+		village: "Tal",
+		subDistrict: "Khadala",
+		district: "Pune",
+	},
+	speciality: [
+		{ id:"SP_ENT", name: "ENT"},
+		{ id: "SP_NRL", name:"Nuerology"}
+	]
+}

@@ -12,6 +12,7 @@ db.on('error', console.error);
 db.once('open', function() {
   var Symptoms = require('./model/Symptoms.js');
   var Cases = require('./model/Cases.js');
+  var Conditions = require('./model/Conditions.js');
 });
 
 mongoose.connect('mongodb://localhost/test');

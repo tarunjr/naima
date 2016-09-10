@@ -1,21 +1,36 @@
 {
 	id: "GST-O1",
 	name: "Abdomen Pain",
-	speciality:"Gastronentology"
-	clinical: [],
-	test: []
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain"},
+			{id:"CS-02", name: "Nausea"}
+		],
+		test: []
+	}
 }
 {
 	id: "GST-O2",
-	name: "Abdomen Pain",
-	speciality:"Gastronentology"
-	clinical: [],
-	test: []
+	name: "Appendicitis",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain"},
+			{id:"CS-02", name: "Nausea"}
+		],
+		test: []
+	}	
 }
 {
-	id: "GST-O3",
+	id: "NRL-O1",
 	name: "Abdomen Pain",
-	speciality:"Gastronentology"
-	clinical: [],
-	test: []
+	speciality: { id:"SP-01", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain"},
+			{id:"CS-02", name: "Nausea"}
+		],
+		test: []
+	}
 }

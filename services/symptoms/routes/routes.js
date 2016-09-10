@@ -1,5 +1,6 @@
 const symptoms = require('../controller/symptoms');
 const cases = require('../controller/cases');
+const conditions = require('../controller/conditions');
 
 module.exports = function (app, model) {
 	app.get('/symptoms', symptoms.get);
@@ -7,6 +8,7 @@ module.exports = function (app, model) {
 	app.get('/symptoms/standard/', symptoms.getStandard);
 	app.get('/symptoms/clinical', symptoms.getClinical);
 	app.get('/symptoms/diagnostic', symptoms.getDiagnostic);
+
 
 	app.get('/cases/open/cp/:id', cases.get_open_cp_data);
 	app.get('/cases/open/doc/:id', cases.get_open_doc_data);
@@ -20,4 +22,7 @@ module.exports = function (app, model) {
 	app.post('/cases/one/:id',cases.put_case_data);
 	app.post('/cases/new',cases.put_new_case_data);
 
+  	app.get('/conditions', conditions.get);
+	app.get('/conditions/:conditionId/info', conditions.getInfo);
 }
+
