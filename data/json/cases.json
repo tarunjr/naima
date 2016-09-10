@@ -42,11 +42,11 @@
 			}],
 			test: [ 
 			]	
-		}
+		},
 		prescription: {
-			date: 12/10/2016,
-			medicines: [{ name: "Ciplox", intake:"2 times a day beofre food", duration="5d"},
-						{ name: "Cough Syrup", intake:"1 in the morning", duration="3d"}],
+			date: "12/10/2016",
+			medicines: [{ name: "Ciplox", intake:"2 times a day beofre food", duration:"5d"},
+						{ name: "Cough Syrup", intake:"1 in the morning", duration:"3d"}],
 			notes: "Avoid milk, spicy food.",
 			review: "2w"
 		}
