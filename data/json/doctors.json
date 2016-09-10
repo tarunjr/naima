@@ -1,24 +1,21 @@
 {
 	name: "Vikram Mehta",
+	id: "DT-01",
 	address: {
-		village: "Ambegaon",
+		locality: "Ambegaon",
 		subDistrict: "Mulshi",
-		district: "Pune",
+		district: "Pune"
 	},
-	speciality: [
-		{ id:"SP_GST", name: "Gastrology"},
-		{ id:"SP_INT", name:"Internal Medicine"}
-	]
-}
+	speciality: [{ id:"SP_GST", name: "Gastrology"},
+				{ id:"SP_INT", name: "Internal Medicine"}]	
+}			
 {
 	name: "Vikram Mehta",
+	id: "DT-02",
 	address: {
-		village: "Tal",
+		locality: "Tal",
 		subDistrict: "Khadala",
-		district: "Pune",
+		district: "Pune"
 	},
-	speciality: [
-		{ id:"SP_ENT", name: "ENT"},
-		{ id: "SP_NRL", name:"Nuerology"}
-	]
+	speciality: [{ id:"SP_ENT", name: "ENT"}]
 }
