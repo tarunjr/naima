@@ -27,5 +27,6 @@ module.exports = function (app, model) {
 	app.get('/conditions/:conditionId/info', conditions.getInfo);
 
 	app.get('/associatedsymptons', associatedsymptons.get);
+	app.post('/associatedsymptons',associatedsymptons.post);
 }
 
