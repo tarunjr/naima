@@ -1,6 +1,7 @@
 const symptoms = require('../controller/symptoms');
 const cases = require('../controller/cases');
 const conditions = require('../controller/conditions');
+const associatedsymptons = require('../controller/associatedsymptoms')
 
 module.exports = function (app, model) {
 	app.get('/symptoms', symptoms.get);
@@ -24,5 +25,7 @@ module.exports = function (app, model) {
 
   	app.get('/conditions', conditions.get);
 	app.get('/conditions/:conditionId/info', conditions.getInfo);
+
+	app.get('/associatedsymptons', associatedsymptons.get);
 }
 

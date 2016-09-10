@@ -13,6 +13,9 @@ db.once('open', function() {
   var Symptoms = require('./model/Symptoms.js');
   var Cases = require('./model/Cases.js');
   var Conditions = require('./model/Conditions.js');
+  var Patients = require('./model/Patients.js');
+  var Doctors = require('./model/Doctors.js');
+  var Rules = require('./model/AssociationRules.js');
 });
 
 mongoose.connect('mongodb://localhost/test');

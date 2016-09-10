@@ -54,11 +54,128 @@
 	}
 }
 {
+	id: "CS-05",
+	format: "clinical",
+	info:{
+		title: "Did he experience Anorexia",
+		name: "Anorexia",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-06",
+	format: "clinical",
+	info:{
+		title: "Did he experience Spasms",
+		name: "Spasms",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-07",
+	format: "clinical",
+	info:{
+		title: "Did he experience Bleeding",
+		name: "Bleeding",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-08",
+	format: "clinical",
+	info:{
+		title: "Did he have temperature",
+		name: "Fever",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-09",
+	format: "clinical",
+	info:{
+		title: "Did he have irregular bowels",
+		name: "Bowel",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-10",
+	format: "clinical",
+	info:{
+		title: "Did he have flatus",
+		name: "Flatus",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-11",
+	format: "clinical",
+	info:{
+		title: "Did he have constipation",
+		name: "Constipation",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-12",
+	format: "clinical",
+	info:{
+		title: "Did he cough",
+		name: "Cough",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-13",
+	format: "clinical",
+	info:{
+		title: "Did he chest pain",
+		name: "Chest Pain",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-14",
+	format: "clinical",
+	info:{
+		title: "Did he get cold",
+		name: "Cold",
+		format: "Boolean"
+	}
+}
+{
 	id: "DT-01",
 	format: "diagnsotic",
 	info:{
 		title: "What is the RBC count?",
 		name: "RBC",
 		format: "Numeric"
+	}
+}
+{
+	id: "DT-02",
+	format: "diagnsotic",
+	info:{
+		title: "Enter CT Scan summary",
+		name: "CT Scan",
+		format: "Text"
+	}
+}
+{
+	id: "DT-03",
+	format: "diagnsotic",
+	info:{
+		title: "Enter X-Ray report?",
+		name: "X-Ray report",
+		format: "Text"
+	}
+}
+{
+	id: "DT-04",
+	format: "diagnsotic",
+	info:{
+		title: "Enter Urine report",
+		name: "Urine report",
+		format: "Text"
 	}
 }
