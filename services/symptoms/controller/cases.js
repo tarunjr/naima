@@ -124,11 +124,9 @@ exports.put_new_case_data = function(req, res) {
 			else{
 				var Cases = mongoose.model('Cases');
 				case_data.doctor = {};
-				/*
 				case_data.doctor['id'] = data[0].id;
 				case_data.doctor['name'] = data[0].name;
 				console.log("Doctor matached for user");
-				*/
 				Cases.create(case_data, function(err, data){
 					if(err)
 						res.send("failed");
