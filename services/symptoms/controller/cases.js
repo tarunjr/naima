@@ -91,7 +91,7 @@ exports.put_case_data = function(req, res) {
 exports.put_new_case_data = function(req, res) {
 	data = req.body;
 	console.log(data);
-	case_data = { status : "open", owner :"doctor", data : data.data, provider: data.provider };
+	case_data = { status : "open", owner :"doctor", data : data.data, provider: data.provider, patient: data.patient };
 
 	var Conditions = mongoose.model('Conditions');
 	symptomIds = [];
