@@ -123,16 +123,17 @@ exports.put_new_case_data = function(req, res) {
 			  res.send("failed");
 			else{
 				var Cases = mongoose.model('Cases');
+				var selectedDoctor = data[0];
 				case_data.doctor = {};
-				case_data.doctor['id'] = data[0].id;
-				case_data.doctor['name'] = data[0].name;
+				case_data.doctor['id'] = selectedDoctor.id;
+				case_data.doctor['name'] = selectedDoctor.name;
 				console.log("Doctor matached for user");
 				Cases.create(case_data, function(err, data){
 					if(err)
 						res.send("failed");
 					else {
-						res.send("success");
-						console.log("Insert success");
+						res.send(JSON.stringify(selectedDoctor));
+						console.log(JSON.stringify(selectedDoctor));
 					}
 				});
 
