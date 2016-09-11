@@ -11,6 +11,7 @@ module.exports = function (app, model) {
 	app.get('/symptoms/diagnostic', symptoms.getDiagnostic);
 
 
+	app.get('/cases/', cases.get_all_data);
 	app.get('/cases/open/cp/:id', cases.get_open_cp_data);
 	app.get('/cases/open/doc/:id', cases.get_open_doc_data);
 	app.get('/cases/one/:id', cases.get_one_case);

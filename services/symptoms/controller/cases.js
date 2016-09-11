@@ -12,6 +12,19 @@ exports.get_open_cp_data = function(req, res) {
 	});
 
 }
+
+exports.get_all_data = function(req, res) {
+	var provider_id = req.params.id;
+	var Cases = mongoose.model('Cases');
+	console.log(provider_id)
+	Cases.find({ }, function(err, cases) {
+	if (err)
+	  res.send(JSON.stringify({}));
+	else
+	  res.send(JSON.stringify(cases));
+	});
+}
+
 exports.get_open_doc_data = function(req, res) {
 	var provider_id = req.params.id;
 	var Cases = mongoose.model('Cases');
