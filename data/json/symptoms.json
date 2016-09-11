@@ -146,6 +146,24 @@
 	}
 }
 {
+	id: "CS-15",
+	format: "clinical",
+	info:{
+		title: "Did he have diarrhea",
+		name: "Diarrhea",
+		format: "Boolean"
+	}
+}
+{
+	id: "CS-16",
+	format: "clinical",
+	info:{
+		title: "Did he have headache?",
+		name: "Headache",
+		format: "Boolean"
+	}
+}
+{
 	id: "DT-01",
 	format: "diagnsotic",
 	info:{

@@ -24,6 +24,11 @@
 	confidence: 0.8	
 }
 {
+	left: ["CS-02"],
+	right: ["CS-03"],
+	confidence: 0.8	
+}
+{
 	left: ["CS-05","DT-02"],
 	right: ["CS-02"],
 	confidence: 1.0	

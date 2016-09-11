@@ -34,12 +34,20 @@ exports.post = function(req, res) {
 	Rules.find({}, function(err, rule) {
     	if (err) 
       		res.send(JSON.stringify("ERROR"));
-    	else
-      		res.send(JSON.stringify(associated(uniqIds, rule)));
-  	});
+    	else {
+      		var newSymIds = associated(uniqIds, rule);
+      		var Symptoms = mongoose.model('Symptoms');
+			Symptoms.find({ 'id' : {$in: newSymIds}})
+			.exec( function (err, data){})
+			.then(function (data){
+				console.log(JSON.stringify(data));
+				res.send(JSON.stringify(data));
+			})
+		}	
+	});
 }
 
-function associated(ids, rule) {
+function associated(ids, rule, res) {
 	console.log("associated symptons");
 	console.log(ids);
 	var newIds = [];
@@ -56,8 +64,6 @@ function associated(ids, rule) {
   		if(ids.has(value) == false)
   			result.push(value)
 	});
-	
-	console.log(result);
 	return result;
 }
 function containsAllEx(id1, id2) {
