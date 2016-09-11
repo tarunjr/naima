@@ -1,2 +1,4 @@
 services/symptoms/node_modules
 
+services/symptoms/db_case_symptoms.json
+services/symptoms/db_symptoms.json

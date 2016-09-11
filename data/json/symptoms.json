@@ -17,6 +17,33 @@
 	}
 }
 {
+	id: "STD-03",
+	format:"standard",
+	info:{
+		title:"Enter Height?",
+		name: "Height",
+		format: "Numeric"
+	}
+}
+{
+	id: "STD-04",
+	format:"standard",
+	info:{
+		title:"Enter BP (High)?",
+		name: "BPH",
+		format: "Numeric"
+	}
+}
+{
+	id: "STD-05",
+	format:"standard",
+	info:{
+		title:"Enter BP (Low)?",
+		name: "BPL",
+		format: "Numeric"
+	}
+}
+{
 	id: "CS-01",
 	format: "clinical",
 	info:{
