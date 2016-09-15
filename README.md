@@ -1,5 +1,5 @@
 # naima
-##Naima: Not Another Intelligent Medical Assistant   
+## Not Another Intelligent Medical Assistant (Naima)
 
 #### Developed with pasion @ SequoiaHack::2016 by [Prashant KS](https://github.com/tarunjr/) , [Saurabh Minni](https://github.com/tarunjr/) and [Tarun Rathor](https://github.com/tarunjr/)
 
