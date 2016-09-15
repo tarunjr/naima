@@ -1,7 +1,7 @@
 # naima
 ##Naima: Not Another Intelligent Medical Assistant   
 
-#### Developed with pasion @ SequoiaHack::2016 by [Prashant KS](https://github.com/tarunjr/) , [Saurabh Minni](https://github.com/tarunjr/) and [Tarun Rathor](https://github.com/tarunjr/)
+#### Developed with pasion @ SequoiaHack::2016 by [Prashant KS](https://in.linkedin.com/in/ksprash) , [Saurabh Minni](https://in.linkedin.com/in/100rabh) and [Tarun Rathor](https://in.linkedin.com/in/tarun-rathor-173aa64)
 
 ##Vision: 
 Provide assisted expert health care to remote patients in an easy and fast way.
@@ -26,7 +26,7 @@ System improves over time in following manner:-
 ### Overview
 System is modelled as a domain driven design with service components implemented as microservices using Node.JS leveraging MongoDB. Analytics consist of batch and streaming components in Apache Spark integrating with services using Kafka. Application components are developed as native android application.
 
-[System Architecture Diagram](https://drive.google.com/open?id=0B9hsNf_dkRTEUjNhMG85dVhpRUk)
+![System Architecture Diagram](https://github.com/tarunjr/naima/blob/master/docs/Naima_System_Architecture.jpg)
 
 ### Data Design
 Following domain entities will be modelled in the system.
