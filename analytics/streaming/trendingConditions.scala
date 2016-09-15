@@ -20,8 +20,8 @@ object TreadingDiseaseTask extends App {
 	}
 	def generateVillageAggreagte(data: DStream[String]) : DStream[String] = {
 		data
-			.map{x => 
-				val tokens = x.split(",")	
+			.map{x =>
+				val tokens = x.split(",")
 				val count = tokens.length
 				val compositeKey = Array(tokens(2),tokens(4),tokens(6) ,tokens(count-1))
 				(compositeKey.mkString("#"), 1)
@@ -34,8 +34,8 @@ object TreadingDiseaseTask extends App {
 
 	def generateSubDistrictAggreagte(data: DStream[String]) : DStream[String] = {
 		data
-			.map{x => 
-				val tokens = x.split(",")	
+			.map{x =>
+				val tokens = x.split(",")
 				val count = tokens.length
 				val compositeKey = Array(tokens(2),tokens(4),tokens(count-1))
 				(compositeKey.mkString("#"), 1)
@@ -47,8 +47,8 @@ object TreadingDiseaseTask extends App {
 	}
 	def generateDistrictAggreagte(data: DStream[String]) : DStream[String] = {
 		data
-			.map{x => 
-				val tokens = x.split(",")	
+			.map{x =>
+				val tokens = x.split(",")
 				val count = tokens.length
 				val compositeKey = Array(tokens(2),tokens(count-1))
 				(compositeKey.mkString("#"), 1)
@@ -75,4 +75,3 @@ object TreadingDiseaseTask extends App {
 	ssc.awaitTermination()
 }
 TreadingDiseaseTask.main(Array())
-
