@@ -41,13 +41,13 @@ Following domain entities will be modelled in the system.
 ### Services Design
 Following are the runtime services component of the system.
 
-#### Users Service: 
+#### * Users Service: 
 Manages Patient, Doctors and  Care Providers entities.Developed in Node.JS and MongoDB. Exposes REST API
 
-#### Case Service: 
+#### * Case Service: 
 Manages Case entity and workflow between Doctor/CareProvider. Developed in Node.JS and MongoDB. Exposes REST API
 	
-#### Medical Service: 
+#### * Medical Service: 
 Maintains a repository of medical knowledge about Condition, Symptom, Test and Speciality. Using this knowledge and additional context It generates ranked ordering of Symptom and Test questions to be asked/collected next. Developed in Node.JS and MongoDB.Uses the result of the Analytical component to adapt its behavior.
 	
 ### Analytics Design
