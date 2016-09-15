@@ -35,4 +35,8 @@ Following domain entities will be modelled in the system.
 * Treatment: A prescribed drug, therapy or action which will address the condition
 * Case: A record which which details the diagnosis and treatment of patient condition.
 
+### Service Design
 
+### Analytics Design
+
+### Application Design
