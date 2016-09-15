@@ -1,7 +1,7 @@
 # naima
 ##Naima: Not Another Intelligent Medical Assistant   
 
-## Developed @ SequoiaHack::2016 by [Prashant KS](https://github.com/tarunjr/) , [Saurabh Minni](https://github.com/tarunjr/) and [Tarun Rathor](https://github.com/tarunjr/)
+### Developed @ SequoiaHack::2016 by [Prashant KS](https://github.com/tarunjr/) , [Saurabh Minni](https://github.com/tarunjr/) and [Tarun Rathor](https://github.com/tarunjr/)
 
 ##Vision: 
 Provide assisted expert health care to remote patients in an easy and fast way.
