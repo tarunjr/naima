@@ -26,7 +26,7 @@ System improves over time in following manner:-
 ### Overview
 System is modelled as a domain driven design with service components implemented as microservices using Node.JS leveraging MongoDB. Analytics consist of batch and streaming components in Apache Spark integrating with services using Kafka. Application components are developed as native android application.
 
-![System Architecture](https://drive.google.com/open?id=0B9hsNf_dkRTEUjNhMG85dVhpRUk)
+[System Architecture Diagram](https://drive.google.com/open?id=0B9hsNf_dkRTEUjNhMG85dVhpRUk)
 
 ### Data Design
 Following domain entities will be modelled in the system.
