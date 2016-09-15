@@ -38,8 +38,24 @@ Following domain entities will be modelled in the system.
 * Treatment: A prescribed drug, therapy or action which will address the condition
 * Case: A record which which details the diagnosis and treatment of patient condition.
 
-### Service Design
+### Services Design
+Following are the runtime services component of the system.
 
+#### Users Service: 
+Manages Patient, Doctors and  Care Providers entities.
+Developed in Node.JS and MongoDB. Exposes REST API
+
+#### Case Service: 
+Manages Case entity and workflow between Doctor/CareProvider. Developed in Node.JS and MongoDB. Exposes REST API
+	
+#### Medical Service: 
+Maintains a repository of medical knowledge about Condition, Symptom, Test and Speciality. Using this knowledge and additional context It generates ranked ordering of Symptom and Test questions to be asked/collected next. Developed in Node.JS and MongoDB.Uses the result of the Analytical component to adapt its behavior.
+	
 ### Analytics Design
 
 ### Application Design
+
+#### CareProvider UX:  User interface for Examiner to prepare a Case and manage the Review and Treatment. Developed as a native Android application
+
+#### Docotor UX: User interface for the Doctor to Review the Case and finalize the Treatment.
+Developed as a native Android application.
