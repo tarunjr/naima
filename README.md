@@ -1,17 +1,17 @@
 # naima
 ##Naima: Not Another Intelligent Medical Assistant   
 
-#### Developed with pasion @ SequoiaHack::2016 by [Prashant KS](https://in.linkedin.com/in/ksprash) , [Saurabh Minni](https://in.linkedin.com/in/100rabh) and [Tarun Rathor](https://in.linkedin.com/in/tarun-rathor-173aa64)
+#### Developed with passion @ SequoiaHack::2016 by [Prashant KS](https://in.linkedin.com/in/ksprash) , [Saurabh Minni](https://in.linkedin.com/in/100rabh) and [Tarun Rathor](https://in.linkedin.com/in/tarun-rathor-173aa64)
 
-##Vision: 
+##Vision:
 Provide assisted expert health care to remote patients in an easy and fast way.
 
-##Problem: 
-In indian rural and semi-urban context access to quality health care is very sparse. 
-Locally available doctors may not be most experienced or informed to evaluate patients medical 
+##Problem:
+In indian rural and semi-urban context access to quality health care is very sparse.
+Locally available doctors may not be most experienced or informed to evaluate patients medical
 condition with consistency and quality.
 
-##Solution: 
+##Solution:
 We propose to empower the doctor/ care agents at rural health centers with a system, that :-
 * Guide them collect most relevant examination data for the medical condition.
 * Enable online review of the case with a relevant speciality expert.
@@ -19,7 +19,7 @@ We propose to empower the doctor/ care agents at rural health centers with a sys
 System improves over time in following manner:-
 * Experts update the system with more knowledge as they review the cases.
 * Latest medical data curated periodically to improve examination process.
-* Treatment outcomes will be feedback to the system in near realitime to finetune and localize.
+* Treatment outcomes will be feedback to the system in near realtime to finetune and localize.
 
 ## System Architecture
 
@@ -43,34 +43,34 @@ Following domain entities will be modelled in the system.
 ### Services Design
 Following are the runtime services component of the system.
 
-#### * Users Service: 
+#### * Users Service:
 Manages Patient, Doctors and  Care Providers entities.Developed in Node.JS and MongoDB. Exposes REST API
 
-#### * Case Service: 
-Manages Case entity and workflow between Doctor/CareProvider. Developed in Node.JS and MongoDB. Exposes REST API
-	
-#### * Medical Service: 
+#### * Case Service:
+Manages Case entity and workflow between Doctor/Care Provider. Developed in Node.JS and MongoDB. Exposes REST API
+    
+#### * Medical Service:
 Maintains a repository of medical knowledge about Condition, Symptom, Test and Speciality. Using this knowledge and additional context It generates ranked ordering of Symptom and Test questions to be asked/collected next. Developed in Node.JS and MongoDB.Uses the result of the Analytical component to adapt its behavior.
-	
+    
 ### Analytics Design:
-Following are the analytics components. Apache Spark is the rutime framework using Kafka as data ingestion and output
+Following are the analytics components. Apache Spark is the runtime framework using Kafka as data ingestion and output
 component.
 
-#### * Symptoms association rules minning:
-A batch component in Apache Spark using FP-Growth algorithm from spark.mllib 
-#### * Conditions Aggreation by region
-A streaming component in Apache Spark using spark.streaming to perform windowed aggreation of conditions diagnosed per region.
+#### * Symptoms association rules mining:
+A batch component in Apache Spark using FP-Growth algorithm from spark.mllib
+#### * Conditions Aggregation by region
+A streaming component in Apache Spark using spark.streaming to perform windowed aggregation of conditions diagnosed per region.
 #### * Conditions/Speciality prediction based on symptoms data
 A nearest neighbour type algorithm to classify as symptom to a speciality for doctor recommendation.
 
 
-### Application Design: 
+### Application Design:
 Application components are implemented a native android applications interacting with only the services component.
 Following two are the application components.
 
-#### * CareProvider UX:  
+#### * Care Provider UX:  
 User interface for Examiner to prepare a Case and manage the Review and Treatment. Developed as a native Android application
 
-#### * Docotor UX: 
+#### * Doctor UX:
 User interface for the Doctor to Review the Case and finalize the Treatment.
 Developed as a native Android application.
