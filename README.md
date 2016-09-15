@@ -41,18 +41,34 @@ Following domain entities will be modelled in the system.
 ### Services Design
 Following are the runtime services component of the system.
 
-#### Users Service: Manages Patient, Doctors and  Care Providers entities.Developed in Node.JS and MongoDB. Exposes REST API
+#### Users Service: 
+Manages Patient, Doctors and  Care Providers entities.Developed in Node.JS and MongoDB. Exposes REST API
 
-#### Case Service: Manages Case entity and workflow between Doctor/CareProvider. Developed in Node.JS and MongoDB. Exposes REST API
+#### Case Service: 
+Manages Case entity and workflow between Doctor/CareProvider. Developed in Node.JS and MongoDB. Exposes REST API
 	
 #### Medical Service: 
 Maintains a repository of medical knowledge about Condition, Symptom, Test and Speciality. Using this knowledge and additional context It generates ranked ordering of Symptom and Test questions to be asked/collected next. Developed in Node.JS and MongoDB.Uses the result of the Analytical component to adapt its behavior.
 	
 ### Analytics Design
+Following are the analytics components. Apache Spark is the rutime framework using Kafka as data ingestion and output
+component.
+
+#### Symptoms associated rules minning
+A batch component in Apache Spark using FP-Growth algorithm from spark.mllib 
+#### Conditions aggreation by locality
+A streaming component in Apache Spark using spark.streaming to perform windowed aggreation of conditions diagnosed per region.
+#### Conditions/Speciality prediction based on symptoms data
+A nearest neighbour type algorithm to classify as symptom to a speciality for doctor recommendation.
+
 
 ### Application Design
+Application components are implemented a native android applications interacting with only the services component.
+Following two are the application components.
 
-#### CareProvider UX:  User interface for Examiner to prepare a Case and manage the Review and Treatment. Developed as a native Android application
+#### CareProvider UX:  
+User interface for Examiner to prepare a Case and manage the Review and Treatment. Developed as a native Android application
 
-#### Docotor UX: User interface for the Doctor to Review the Case and finalize the Treatment.
+#### Docotor UX: 
+User interface for the Doctor to Review the Case and finalize the Treatment.
 Developed as a native Android application.
