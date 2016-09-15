@@ -1,5 +1,5 @@
 # naima
-## Not Another Intelligent Medical Assistant (Naima)
+##Naima: Not Another Intelligent Medical Assistant   
 
 #### Developed with pasion @ SequoiaHack::2016 by [Prashant KS](https://github.com/tarunjr/) , [Saurabh Minni](https://github.com/tarunjr/) and [Tarun Rathor](https://github.com/tarunjr/)
 
@@ -22,6 +22,9 @@ System improves over time in following manner:-
 * Treatment outcomes will be feedback to the system in near realitime to finetune and localize.
 
 ## System Architecture
+
+### Overview
+System is modelled as a domain driven design with service components implemented as microservices using Node.JS leveraging MongoDB. Analytics consist of batch and streaming components in Apache Spark integrating with services using Kafka. Application components are developed as native android application.
 
 ### Data Design
 Following domain entities will be modelled in the system.
