@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-var conditionsSchema = new Schema({
+var ConditionSchema = {
   	id:  String,
     name: String,
   	speciality: {
@@ -13,5 +12,7 @@ var conditionsSchema = new Schema({
     	clinical: [{id:String, name:String, value:String}],
     	test: [{id:String, name:String}]
     }
-  });
-module.exports = mongoose.model('Conditions', conditionsSchema);
+  }
+
+module.exports = new mongoose.Schema(ConditionSchema);
+module.exports.ConditionSchema = ConditionSchema;

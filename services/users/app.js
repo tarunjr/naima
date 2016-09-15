@@ -7,5 +7,5 @@ var db = require('./model/models')();
 var app = express();
 app.use('/api/v1/', require('./api.js')());
 
-app.listen(3000);
-console.log('Listetning on 3000');
+app.listen(3001);
+console.log('Listetning on 3001');

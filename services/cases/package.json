@@ -1,8 +1,8 @@
 {
-  "name": "medical",
+  "name": "cases",
   "version": "1.0.0",
-  "description": "Medical intelligence service",
-  "main": "app.js",
+  "description": "Medical Case Service",
+  "main": "index.js",
   "keywords": [
     "naima"
   ],

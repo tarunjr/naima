@@ -1,0 +1,18 @@
+{
+	name: "Dr Ramesh",
+	id: "CP-01",
+	address: {
+		locality: "Ambegaon",
+		subDistrict: "Mulshi",
+		district: "Pune"
+	}
+}
+{
+	name: "Nurse Sunita",
+	id: "CP-02",
+	locality: {
+		village: "Tal",
+		subDistrict: "Khadala",
+		district: "Pune"
+	}
+}

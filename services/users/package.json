@@ -1,7 +1,7 @@
 {
-  "name": "medical",
+  "name": "users",
   "version": "1.0.0",
-  "description": "Medical intelligence service",
+  "description": "Users Service",
   "main": "app.js",
   "keywords": [
     "naima"
