@@ -1,0 +1,8 @@
+{
+    "name": "Ping",
+    "namespace": "org.naima.avro",
+    "type": "record",
+    "fields": [
+      {"name": "name", "type": "string"}
+    ]
+  }

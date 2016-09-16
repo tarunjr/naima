@@ -9,7 +9,7 @@ val sparkVersion = "2.0.0"
 libraryDependencies ++= Seq(
   "com.twitter" %% "bijection-core" % bijectionVersion,
   "com.twitter" %% "bijection-avro" % bijectionVersion,
-  "org.apache.kafka" % "kafka_2.11" % "0.9.0.1"
+  "org.apache.kafka" % "kafka_2.11" % "0.8.2.1"
     exclude("javax.jms", "jms")
     exclude("com.sun.jdmk", "jmxtools")
     exclude("com.sun.jmx", "jmxri")
@@ -25,7 +25,7 @@ libraryDependencies ++= Seq(
     exclude("org.slf4j", "jcl-over-slf4j")
     exclude("com.twitter", "chill_2.10")
     exclude("log4j", "log4j"),
-  "org.apache.spark" %% "spark-streaming" % sparkVersion,
+  "org.apache.spark" %% "spark-streaming" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-streaming-kafka" % "1.6.2"
       exclude("org.apache.zookeeper", "zookeeper")
 )
