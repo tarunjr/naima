@@ -1,22 +1,19 @@
-//spark$ bin/spark-shell --jars /src/naima/analytics/streaming/spark-streaming-kafka-0-8-assembly_2.11-2.0.0.jar,
-//org.apache.spark:spark-streaming_2.10:1.4.1,
-//com.databricks:spark-avro_2.11:3.0.0 --master local[2]
-
 package org.naima.analytics.streaming
 
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
-import org.apache.spark.SparkConf
+import kafka.serializer.StringDecoder
+
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.Seconds
-import org.apache.spark.streaming.Minutes
 import org.apache.spark.streaming.kafka._
-import kafka.serializer.StringDecoder
+import org.apache.spark.SparkConf
+
+import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
+
 import java.util.HashMap
-/*
 import org.naima.avro.Pet
 import com.twitter.bijection.Injection
 import com.twitter.bijection.avro.SpecificAvroCodecs
-*/
+
 
 object KafkaWordCount {
   def main(args: Array[String]) {

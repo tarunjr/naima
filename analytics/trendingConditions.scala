@@ -8,15 +8,8 @@ import scala.collection.mutable.Queue._
 
 
 object TreadingDiseaseTask extends App {
-	def getTestDStream(ssc : StreamingContext ): DStream[String] = {
-		val batches = new mutable.Queue[RDD[String]]
-		val batch1 = sc.textFile("file:///vagrant/nalanda/data/test/disease_locations_batch1.csv")
-		val batch2 = sc.textFile("file:///vagrant/nalanda/data/test/disease_locations_batch2.csv")
+	def getDStream(ssc : StreamingContext): DStream[String] = {
 
-		batches += batch1
-		batches += batch2
-
-		ssc.queueStream[String](batches)
 	}
 	def generateVillageAggreagte(data: DStream[String]) : DStream[String] = {
 		data
@@ -58,9 +51,10 @@ object TreadingDiseaseTask extends App {
 				tokens.mkString(",") + "," + count._2
 			}
 	}
+	val sc = new SparkConf().setAppName("TreadingDiseaseTask")
 	val ssc = new StreamingContext(sc, Seconds(10))
 
-	val data = getTestDStream(ssc)
+	val data = getDStream(ssc)
 
 	generateVillageAggreagte(data)
 		.saveAsTextFiles("file:///vagrant/nalanda/data/analyzed/dis_aggr","village")
@@ -74,4 +68,3 @@ object TreadingDiseaseTask extends App {
 	ssc.start()
 	ssc.awaitTermination()
 }
-TreadingDiseaseTask.main(Array())

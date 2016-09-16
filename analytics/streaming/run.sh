@@ -1,1 +1,0 @@
-bin/spark-shell --jars  /src/naima/analytics/streaming/spark-streaming-kafka-0-8-assembly_2.11-2.0.0.jar,/src/naima/analytics/streaming/pet.jar,/src/naima/analytics/streaming/bijection-avro_2.9.3-0.6.3.jar,/src/naima/analytics/streaming/bijection-core_2.9.3-0.6.3.jar,/src/naima/analytics/streaming/avro-1.7.5.jar   --master local[2]

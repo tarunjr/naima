@@ -6,25 +6,24 @@ var kafka = require('kafka-node'),
 
 var connected = false;
 
-producer.on('ready', function() {
-  connected = true;
+producer.on('error', function() {
+  connected = false;
 });
 
-producer.on('error', function (err) {
-  connected = false;
+producer.on('ready', function (err) {
+  connected = true;
   console.log('connected')
   const type = avro.parse({
     name: 'Pet',
     type: 'record',
     fields: [
-      {name: 'kind', type: {name: 'Kind', type: 'enum', symbols: ['CAT', 'DOG']}},
       {name: 'name', type: 'string'}
     ]
   });
 
-  const buf = type.toBuffer({kind: 'CAT', name: 'Albert'}); // Encoded buffer.
+  const buf = type.toBuffer({name: 'Albert'}); // Encoded buffer.
   var km = new kafka.KeyedMessage('key', buf);
-  var payloads = [{topic:'naima', messages:[km]}];
+  var payloads = [{topic:'newcase', messages:[km]}];
 
   producer.send(payloads, function(err, data){
       if (err){
