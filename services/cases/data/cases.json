@@ -1,8 +1,8 @@
-	{
+	{	
 		patient: {
 			id:"PT-01",
 			name: "Rambai"
-		},
+		}, 
 		doctor: {
 			id:"DR-01",
 			name: "Rambai"
@@ -13,7 +13,7 @@
 		},
 		status: "open",
 		owner: "doctor",
-
+		
 		data : {
 			clinical:[
 			{
@@ -31,8 +31,8 @@
 				id:"DT-03",
 				name: "X-Ray report",
 				value: "No issue with rib cage, spinal cord."
-			}
-			]
+			}	
+			]	
 		},
 		pendingdata : {
 			clinical:[
@@ -44,8 +44,8 @@
 				id:"CS-10",
 				name: "Flatus"
 			}],
-			test: [
-			]
+			test: [ 
+			]	
 		},
 		prescription: {
 			date: "12/10/2016",
