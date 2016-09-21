@@ -8,7 +8,11 @@ module.exports = function(){
   });
 
   // set up the db layer
-  mongoose.connect('mongodb://localhost/users');
+  mongoose.connect('mongodb://'
+                    + process.env.MONGO_PORT_27017_TCP_ADDR
+                    + ':'
+                    + process.env.MONGO_PORT_27017_TCP_PORT
+                    + '/users');
 
   var Patient = mongoose.model('Patient',require('./Patients'),'patients');
 

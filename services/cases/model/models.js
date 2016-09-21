@@ -8,7 +8,11 @@ module.exports = function(){
   });
 
   // set up the db layer
-  mongoose.connect('mongodb://localhost/cases');
+  mongoose.connect('mongodb://'
+                    + process.env.MONGO_PORT_27017_TCP_ADDR
+                    + ':'
+                    + process.env.MONGO_PORT_27017_TCP_PORT
+                    + '/cases');
 
   var Case = mongoose.model('Case',require('./Cases'),'cases');
 

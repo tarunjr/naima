@@ -6,6 +6,9 @@
   "keywords": [
     "naima"
   ],
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "tarun",
   "license": "MIT",
   "dependencies": {
