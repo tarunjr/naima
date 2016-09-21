@@ -24,16 +24,20 @@ public class SymptomController {
 
     @RequestMapping("/symptoms")
     public List<Symptom> symptom() {
+      System.out.println("symptom.GET");
       ObjectMapper mapper = new ObjectMapper();
       List<Symptom> symptoms = new ArrayList<Symptom>();
       ValueOperations<String,String> valueOps = redisTemplate.opsForValue();
 
       try {
-        Set<String> keys = redisTemplate.keys("CSM-*");
+        String keyPattern = KeyNameSpace.SymptomNamespace + ":*";
+        Set<String> keys = redisTemplate.keys(keyPattern);
 
         for(String key: keys) {
-           String jsonInString  =  valueOps.get(key);
-           Symptom symptom = mapper.readValue(jsonInString, Symptom.class);
+           System.out.println(key);
+           String json  =  valueOps.get(key);
+           System.out.println(json);
+           Symptom symptom = mapper.readValue(json, Symptom.class);
            //System.out.println(symptom.getTitle());
            //System.out.println(jsonInString);
            symptoms.add(symptom);
@@ -51,8 +55,8 @@ public class SymptomController {
 
       System.out.println(symId);
       try {
-          String jsonInString  = valueOps.get(symId);
-          symptom = mapper.readValue(jsonInString, Symptom.class);
+          String json  = valueOps.get(symId);
+          symptom = mapper.readValue(json, Symptom.class);
       } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
       } catch (java.io.IOException iox) {
       }

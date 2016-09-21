@@ -29,11 +29,12 @@ public class ConditionController {
       List<Condition> conditions = new ArrayList<Condition>();
 
       try {
-        Set<String> keys = redisTemplate.keys("CND-*");
+        String keyPattern = KeyNameSpace.ConditionNamespace + ":*";
 
+        Set<String> keys = redisTemplate.keys(keyPattern);
         for(String key: keys) {
-           String jsonInString  =  valueOps.get(key);
-           Condition condition = mapper.readValue(jsonInString, Condition.class);
+           String json  =  valueOps.get(key);
+           Condition condition = mapper.readValue(json, Condition.class);
            conditions.add(condition);
         }
       } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
@@ -49,8 +50,8 @@ public class ConditionController {
 
       System.out.println(conditionId);
       try {
-          String jsonInString  = valueOps.get(conditionId);
-          condition = mapper.readValue(jsonInString, Condition.class);
+          String json  = valueOps.get(conditionId);
+          condition = mapper.readValue(json, Condition.class);
       } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
       } catch (java.io.IOException iox) {
       }

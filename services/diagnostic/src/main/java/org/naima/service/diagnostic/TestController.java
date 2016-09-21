@@ -29,11 +29,12 @@ public class TestController {
       List<Test> tests = new ArrayList<Test>();
 
       try {
-        Set<String> keys = redisTemplate.keys("TST-*");
+        String keyPattern = KeyNameSpace.TestNamespace + ":*";
 
+        Set<String> keys = redisTemplate.keys(keyPattern);
         for(String key: keys) {
-           String jsonInString  =  valueOps.get(key);
-           Test test = mapper.readValue(jsonInString, Test.class);
+           String json  =  valueOps.get(key);
+           Test test = mapper.readValue(json, Test.class);
            tests.add(test);
         }
       } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
@@ -49,8 +50,8 @@ public class TestController {
 
       System.out.println(testId);
       try {
-          String jsonInString  = valueOps.get(testId);
-          test = mapper.readValue(jsonInString, Test.class);
+          String json  = valueOps.get(testId);
+          test = mapper.readValue(json, Test.class);
       } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
       } catch (java.io.IOException iox) {
       }
