@@ -5,7 +5,7 @@ var DoctorSchema = {
   	name: String,
   	id:  String,
   	address: {
-    	locality: String,
+    	  locality: String,
       	subDistrict: String,
       	district: String
   	},
