@@ -105,7 +105,7 @@ exports.put_new_case_data = function(req, res) {
 	console.log(data);
 	case_data = { status : "open", owner :"doctor", data : data.data, provider: data.provider, patient: data.patient };
 
-	var Cases = mongoose.model('Cases');
+	var Cases = mongoose.model('Case');
 	// TODO insert doctor recommendation here.
 	case_data.doctor = {};
 	case_data.doctor['id'] = 'DT-01';
