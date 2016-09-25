@@ -111,6 +111,7 @@ exports.put_new_case_data = function(req, res) {
 	case_data.doctor['id'] = 'DT-01';
 	case_data.doctor['name'] = 'Dr Vikram Mehta';
 	console.log("Hard coded doctor");
+	var selectedDoctor = case_data.doctor;
 
 	Cases.create(case_data, function(err, data){
 		if(err)
