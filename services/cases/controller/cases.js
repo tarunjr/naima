@@ -107,9 +107,22 @@ exports.put_new_case_data = function(req, res) {
 
 	var Cases = mongoose.model('Case');
 	// TODO insert doctor recommendation here.
+
+	var speciality = {};
+	speciality['id'] = "2";
+	speciality['name'] = "GastroEntrology";
+
+	var address = {};
+	address['locality'] = 'koramangala';
+	address['subDistrict'] = 'Bangalore';
+	address['district'] = 'Bangalore';
+
 	case_data.doctor = {};
 	case_data.doctor['id'] = 'DT-01';
 	case_data.doctor['name'] = 'Dr Vikram Mehta';
+	case_data.doctor['speciality'] = speciality;
+	case_data.doctor['address'] = address;
+	
 	console.log("Hard coded doctor");
 	var selectedDoctor = case_data.doctor;
 
