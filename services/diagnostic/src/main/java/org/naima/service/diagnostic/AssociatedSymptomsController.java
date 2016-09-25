@@ -38,6 +38,7 @@ public class AssociatedSymptomsController {
       String tempInputsetKey = "TEMP:CSM:" + Long.toString(System.currentTimeMillis());
 
       for(SymptomValue s: hasSymptoms) {
+        System.out.println(s);
         symptoms.add(s.getSymptom().getId());
         setOps.add(tempInputsetKey, s.getSymptom().getId());
       }
