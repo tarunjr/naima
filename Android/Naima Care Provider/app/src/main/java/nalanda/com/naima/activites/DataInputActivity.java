@@ -17,6 +17,7 @@ public class DataInputActivity extends AppCompatActivity implements BaseDataFrag
 
     public static final String INPUT_EXTRA_FLOW = "Flow";
     public static final String FLOW_CREATE_CASE = "CreateCase";
+    public static final String FLOW_PENDING_CASE = "PendingCase";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -27,5 +27,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.pending_item).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataInputActivity.class);
+                intent.putExtra(DataInputActivity.INPUT_EXTRA_FLOW, DataInputActivity.FLOW_PENDING_CASE);
+                startActivity(intent);
+            }
+        });
     }
 }

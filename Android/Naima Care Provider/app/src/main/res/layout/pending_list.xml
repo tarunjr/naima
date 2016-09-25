@@ -9,11 +9,10 @@
        android:layout_marginBottom="5dp"
        android:textSize="24sp"/>
    <ListView
-      android:id="@+id/multiple_choice"
+      android:id="@+id/pending_items_list"
        android:layout_below="@id/title"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:choiceMode="multipleChoice"
+      android:layout_height="match_parent"
       android:layout_marginTop="5dp"
       android:layout_marginBottom="5dp"/>
 </RelativeLayout>

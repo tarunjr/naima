@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Naima</string>
+    <string name="app_name">NAIMA Care Provider</string>
     <string name="main_create">Create</string>
     <string name="main_open">Open</string>
     <string name="main_pending">Pending</string>
@@ -12,4 +12,5 @@
     <string name="no">No</string>
     <string name="next">Next</string>
     <string name="submit">Submit</string>
+    <string name="done">Done</string>
 </resources>

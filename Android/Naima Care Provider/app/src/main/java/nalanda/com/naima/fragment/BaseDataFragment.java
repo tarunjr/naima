@@ -13,6 +13,7 @@ import java.util.List;
 
 import nalanda.com.naima.R;
 import nalanda.com.naima.activites.DataInputActivity;
+import nalanda.com.naima.flow.PendingFlowManager;
 import nalanda.com.naima.flow.SymptomFlowManager;
 import nalanda.com.naima.widgets.BaseView;
 
@@ -130,15 +131,29 @@ public class BaseDataFragment extends Fragment {
         }
     }
 
+    public void updateFooterView(View view) {
+        if(((LinearLayout) mRootView).getChildCount() > 1) {
+            ((LinearLayout) mRootView).removeViewAt(1);
+        }
+        ((LinearLayout) mRootView).addView(view);
+    }
+
     private void startFlow() {
         mCurrentFlow = getArguments().getString(DataInputActivity.INPUT_EXTRA_FLOW);
         if(DataInputActivity.FLOW_CREATE_CASE.equals(mCurrentFlow)) {
             startCreateFlow();
+        } else if(DataInputActivity.FLOW_PENDING_CASE.equals(mCurrentFlow)) {
+            startPendingFlow();
         }
     }
 
     private void startCreateFlow() {
         SymptomFlowManager symptomFlowManager = new SymptomFlowManager(this);
         symptomFlowManager.startFlow();
+    }
+
+    private void startPendingFlow() {
+        PendingFlowManager pendingFlowManager = new PendingFlowManager(this);
+        pendingFlowManager.startFlow();
     }
 }

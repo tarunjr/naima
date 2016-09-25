@@ -23,9 +23,9 @@ public class ComboboxView implements BaseView{
     private SymptomItemModel dataViewItemModel[];
     private View view;
 
-    public ComboboxView(BaseViewModel dataViewModel[]) {
+    public ComboboxView(BaseViewModel dataViewItemModel[]) {
         comboboxModel = new ComboboxModel();
-        this.dataViewItemModel = dataViewItemModel;
+        this.dataViewItemModel = (SymptomItemModel[]) dataViewItemModel;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ComboboxView implements BaseView{
         }
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, items);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, R.layout.spinner_text, items);
 
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
