@@ -29,7 +29,8 @@ public class VitalStatController {
       ValueOperations<String,String> valueOps = redisTemplate.opsForValue();
 
       try {
-        Set<String> keys = redisTemplate.keys("STD-*");
+        String keyPattern = KeyNameSpace.StandardNamespace + ":*";
+        Set<String> keys = redisTemplate.keys(keyPattern);
 
         for(String key: keys) {
            String jsonInString  =  valueOps.get(key);
