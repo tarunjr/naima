@@ -41,9 +41,9 @@ public class NumericView implements BaseView {
         String value = ((EditText) view.findViewById(R.id.numericField)).getText().toString();
         if(!TextUtils.isEmpty(value)) {
             CaseClinical caseClinical = new CaseClinical();
-            caseClinical.setSymptomItemModel(new SymptomItemModel());
-            caseClinical.getSymptomItemModel().setName((numericViewModel).getName());
-            caseClinical.getSymptomItemModel().setId(numericViewModel.getId());
+            caseClinical.setSymptom(new SymptomItemModel());
+            caseClinical.getSymptom().setName((numericViewModel).getName());
+            caseClinical.getSymptom().setId(numericViewModel.getId());
             List<String> values = new ArrayList<String>();
             values.add(value);
             caseClinical.setValue(values);

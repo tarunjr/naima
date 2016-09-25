@@ -69,9 +69,9 @@ public class MultipleChoiceView implements BaseView{
             }
 
             CaseClinical caseClinical = new CaseClinical();
-            caseClinical.setSymptomItemModel(new SymptomItemModel());
-            caseClinical.getSymptomItemModel().setId(multipleChoiceViewModel.getId());
-            caseClinical.getSymptomItemModel().setName(multipleChoiceViewModel.getName());
+            caseClinical.setSymptom(new SymptomItemModel());
+            caseClinical.getSymptom().setId(multipleChoiceViewModel.getId());
+            caseClinical.getSymptom().setName(multipleChoiceViewModel.getName());
             caseClinical.setValue(values);
 
             return caseClinical;

@@ -71,9 +71,9 @@ public class ChoiceView implements BaseView{
             }
 
             CaseClinical caseClinical = new CaseClinical();
-            caseClinical.setSymptomItemModel(new SymptomItemModel());
-            caseClinical.getSymptomItemModel().setId(choiceViewModel.getId());
-            caseClinical.getSymptomItemModel().setName(choiceViewModel.getName());
+            caseClinical.setSymptom(new SymptomItemModel());
+            caseClinical.getSymptom().setId(choiceViewModel.getId());
+            caseClinical.getSymptom().setName(choiceViewModel.getName());
             caseClinical.setValue(values);
 
             return caseClinical;

@@ -12,7 +12,7 @@ public class CaseClinical extends BaseModel{
 //
 //    private String name;
 
-    private SymptomItemModel symptomItemModel;
+    private SymptomItemModel symptom;
 
     private List<String> value;
 
@@ -33,12 +33,12 @@ public class CaseClinical extends BaseModel{
 //    }
 
 
-    public SymptomItemModel getSymptomItemModel() {
-        return symptomItemModel;
+    public SymptomItemModel getSymptom() {
+        return symptom;
     }
 
-    public void setSymptomItemModel(SymptomItemModel symptomItemModel) {
-        this.symptomItemModel = symptomItemModel;
+    public void setSymptom(SymptomItemModel symptom) {
+        this.symptom = symptom;
     }
 
     public List<String> getValue() {
