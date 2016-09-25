@@ -2,25 +2,6 @@ package org.naima.service.diagnostic;
 import java.util.List;
 
 public class Condition {
-
-    public class SymptomRef {
-      private String id;
-      private String name;
-
-      public String getName() {
-          return name;
-      }
-      public void setName(String name) {
-          this.name = name;
-      }
-      public String getId() {
-          return id;
-      }
-      public void setId(String id) {
-          this.id = id;
-      }
-    }
-
     private String id;
     private String name;
     private Speciality speciality;
@@ -44,10 +25,10 @@ public class Condition {
     public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
-    public List<SymptomRef> getSymptoms() {
+    public List<String> getSymptoms() {
         return this.symptoms;
     }
-    public void setSymptoms(List<SymptomRef>  symptoms) {
+    public void setSymptoms(List<String>  symptoms) {
         this.symptoms = symptoms;
     }
 }

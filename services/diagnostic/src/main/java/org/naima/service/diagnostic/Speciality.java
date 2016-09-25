@@ -1,3 +1,5 @@
+package org.naima.service.diagnostic;
+
 public class Speciality {
   private String id;
   private String name;
