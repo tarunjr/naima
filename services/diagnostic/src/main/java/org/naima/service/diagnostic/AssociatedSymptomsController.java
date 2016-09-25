@@ -51,17 +51,18 @@ public class AssociatedSymptomsController {
 
         Set<String> ids = setOps.members("RULES");
         for(String id: ids) {
-          System.out.println(id);
-          Set<String> intersect  =  setOps.intersect(KeyNameSpace.AssociationRuleNamespace +
+           Set<String> intersect  =  setOps.intersect(KeyNameSpace.AssociationRuleNamespace +
                                                       ":" + id + ":" + kAntecedent, tempInputsetKey);
-           System.out.println(setOps.members(KeyNameSpace.AssociationRuleNamespace +
-                                                      ":" + id + ":" + kAntecedent));
-                      // Check if the rule is selected
-           if (intersect.size() == symptoms.size()) {
+
+           Set<String> ancedents =  setOps.members(KeyNameSpace.AssociationRuleNamespace +
+                                                     ":" + id + ":" + kAntecedent);
+           System.out.println(id + " : " + ancedents);
+           // Check if the rule is selected
+           if (intersect.size() == ancedents.size()) {
               String strConfidence = valueOps.get(KeyNameSpace.AssociationRuleNamespace +
-                                                      ":" + id + ":" + kConfidence);
+                                                    ":" + id + ":" + kConfidence);
               double confidence = Double.valueOf(strConfidence);
-              //System.out.println(strConfidence);
+              System.out.println(id + " matches with confidence : " + strConfidence);
               if (confidence > maxConfidence) {
                   maxConfidence = confidence;
                   selectedKey = id;
