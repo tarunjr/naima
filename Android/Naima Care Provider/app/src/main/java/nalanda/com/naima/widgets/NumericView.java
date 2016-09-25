@@ -31,7 +31,7 @@ public class NumericView implements BaseView {
     @Override
     public View getView(Activity activity) {
         view = activity.getLayoutInflater().inflate(R.layout.numeric_input_layout, null, false);
-        ((EditText)view.findViewById(R.id.numericField)).setHint(numericViewModel.getInfo().getTitle());
+        ((EditText)view.findViewById(R.id.numericField)).setHint(numericViewModel.getTitle());
 
         return view;
     }
@@ -41,8 +41,9 @@ public class NumericView implements BaseView {
         String value = ((EditText) view.findViewById(R.id.numericField)).getText().toString();
         if(!TextUtils.isEmpty(value)) {
             CaseClinical caseClinical = new CaseClinical();
-            caseClinical.setName((numericViewModel).getInfo().getName());
-            caseClinical.setId(numericViewModel.getId());
+            caseClinical.setSymptomItemModel(new SymptomItemModel());
+            caseClinical.getSymptomItemModel().setName((numericViewModel).getName());
+            caseClinical.getSymptomItemModel().setId(numericViewModel.getId());
             List<String> values = new ArrayList<String>();
             values.add(value);
             caseClinical.setValue(values);

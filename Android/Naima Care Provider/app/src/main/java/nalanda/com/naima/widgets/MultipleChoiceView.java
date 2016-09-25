@@ -37,10 +37,10 @@ public class MultipleChoiceView implements BaseView{
     public View getView(Activity activity) {
         view = activity.getLayoutInflater().inflate(R.layout.multiple_choice_input_layout, null, false);
 
-        ((TextView)view.findViewById(R.id.title)).setText(multipleChoiceViewModel.getInfo().getTitle());
+        ((TextView)view.findViewById(R.id.title)).setText(multipleChoiceViewModel.getTitle());
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_multiple_choice, multipleChoiceViewModel.getInfo().getOptions());
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_multiple_choice, multipleChoiceViewModel.getOptions());
 
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
@@ -69,8 +69,9 @@ public class MultipleChoiceView implements BaseView{
             }
 
             CaseClinical caseClinical = new CaseClinical();
-            caseClinical.setId(multipleChoiceViewModel.getId());
-            caseClinical.setName(multipleChoiceViewModel.getInfo().getName());
+            caseClinical.setSymptomItemModel(new SymptomItemModel());
+            caseClinical.getSymptomItemModel().setId(multipleChoiceViewModel.getId());
+            caseClinical.getSymptomItemModel().setName(multipleChoiceViewModel.getName());
             caseClinical.setValue(values);
 
             return caseClinical;

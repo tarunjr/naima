@@ -33,11 +33,11 @@ import nalanda.com.naima.widgets.WidgetFactory;
  * Created by ps1 on 9/10/16.
  */
 public class SymptomFlowManager {
-    public static final String symptomStandardUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/symptoms/standard";
-    public static final String symptomClinicalUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/symptoms/clinical";
+    public static final String symptomStandardUrl = "http://ec2-52-201-244-120.compute-1.amazonaws.com:8080/vitalstats";
+    public static final String symptomClinicalUrl = "http://ec2-52-201-244-120.compute-1.amazonaws.com:8080/symptoms";
     public static final String symptomDiagnosticUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/symptoms/diagnostic";
     public static final String caseNewUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/cases/new";
-    public static final String associatedSymptomsUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/associatedsymptons";
+    public static final String associatedSymptomsUrl = "http://ec2-52-201-244-120.compute-1.amazonaws.com:8080/associatedsymptons";
     public static final String JSON_CONTENT_TYPE = "application/json";
 
     private BaseDataFragment mDataFragment;
@@ -109,7 +109,7 @@ public class SymptomFlowManager {
                 symptomModel = gson.fromJson(response, SymptomItemModel[].class);
                 List<View> views = new ArrayList<View>();
                 for (SymptomItemModel itemModel :symptomModel) {
-                    BaseView view = widgetFactory.getViewWidget(itemModel.getInfo().getFormat(), itemModel);
+                    BaseView view = widgetFactory.getViewWidget(itemModel.getFormat(), itemModel);
                     views.add(view.getView(mDataFragment.getActivity()));
                 }
 
@@ -192,7 +192,7 @@ public class SymptomFlowManager {
 
         List<View> views = new ArrayList<View>();
         SymptomItemModel itemModel = symptomModel[index];
-        final BaseView view = widgetFactory.getViewWidget(itemModel.getInfo().getFormat(), itemModel);
+        final BaseView view = widgetFactory.getViewWidget(itemModel.getFormat(), itemModel);
         if (view != null) {
             views.add(view.getView(mDataFragment.getActivity()));
         }
@@ -221,7 +221,7 @@ public class SymptomFlowManager {
                 List<View> views = new ArrayList<View>();
                 mViews = new ArrayList<BaseView>();
                 for (SymptomItemModel itemModel : symptomModel) {
-                    BaseView view = widgetFactory.getViewWidget(itemModel.getInfo().getFormat(), itemModel);
+                    BaseView view = widgetFactory.getViewWidget(itemModel.getFormat(), itemModel);
                     if (view != null) {
                         views.add(view.getView(mDataFragment.getActivity()));
                         mViews.add(view);
@@ -254,7 +254,7 @@ public class SymptomFlowManager {
                 symptomModel = gson.fromJson(response, SymptomItemModel[].class);
                 List<View> views = new ArrayList<View>();
                 for (SymptomItemModel itemModel : symptomModel) {
-                    BaseView view = widgetFactory.getViewWidget(itemModel.getInfo().getFormat(), itemModel);
+                    BaseView view = widgetFactory.getViewWidget(itemModel.getFormat(), itemModel);
                     if (view != null)
                         views.add(view.getView(mDataFragment.getActivity()));
                 }
@@ -279,7 +279,7 @@ public class SymptomFlowManager {
         mCurrentState = SYMPTOM_STATE_DIAGNOSTIC;
 
 //        String body = "{ \"data\":  { \"clinical\": [ {  \"id\": \"ID-01\", \"name\": \"Abdomain  Pain\",  \"value\": [ \"UpperLeft\",  \"UpperRigth\" ] } ]  }, \"provider\": { \"id\":  \"PR-02\", \"name\": \"Test02\" },  \"patient\": { \"id\": \"PT-01\", \"name\": \"Ramu\" } }";
-        String body = gson.toJson(caseDataModel.getData(), CaseData.class);
+        String body = gson.toJson(caseDataModel.getData().getClinical());
         Log.i("goToSubmitState", "JSON: " + body);
         VolleyUtil.getInstance().doPost(mDataFragment.getContext(), associatedSymptomsUrl, body, JSON_CONTENT_TYPE, new Response.Listener<String>() {
             @Override

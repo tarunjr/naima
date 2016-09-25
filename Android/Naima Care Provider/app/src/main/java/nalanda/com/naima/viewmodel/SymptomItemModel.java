@@ -12,7 +12,11 @@ public class SymptomItemModel extends BaseViewModel {
 
     private String format;
 
-    private Info info;
+    private String title;
+
+    private String name;
+
+    private List<String> options = new ArrayList<String>();
 
     /**
      *
@@ -51,91 +55,48 @@ public class SymptomItemModel extends BaseViewModel {
     }
 
     /**
-     *
-     * @return
-     * The info
+     * @return The title
      */
-    public Info getInfo() {
-        return info;
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @param title The title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * @return The name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name The name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
      *
-     * @param info
-     * The info
+     * @return
+     * The options
      */
-    public void setInfo(Info info) {
-        this.info = info;
+    public List<String> getOptions() {
+        return options;
     }
 
-    public class Info {
-        private String title;
-
-        private String name;
-
-        private String format;
-
-        private List<String> options = new ArrayList<String>();
-
-        /**
-         * @return The title
-         */
-        public String getTitle() {
-            return title;
-        }
-
-        /**
-         * @param title The title
-         */
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        /**
-         * @return The name
-         */
-        public String getName() {
-            return name;
-        }
-
-        /**
-         * @param name The name
-         */
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        /**
-         * @return The format
-         */
-        public String getFormat() {
-            return format;
-        }
-
-        /**
-         * @param format The format
-         */
-        public void setFormat(String format) {
-            this.format = format;
-        }
-
-        /**
-         *
-         * @return
-         * The options
-         */
-        public List<String> getOptions() {
-            return options;
-        }
-
-        /**
-         *
-         * @param options
-         * The options
-         */
-        public void setOptions(List<String> options) {
-            this.options = options;
-        }
+    /**
+     *
+     * @param options
+     * The options
+     */
+    public void setOptions(List<String> options) {
+        this.options = options;
     }
-
 }

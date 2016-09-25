@@ -37,7 +37,7 @@ public class ChoiceView implements BaseView{
     public View getView(Activity activity) {
         view = activity.getLayoutInflater().inflate(R.layout.choice_input_layout, null, false);
 
-        ((TextView)view.findViewById(R.id.title)).setText(choiceViewModel.getInfo().getTitle());
+        ((TextView)view.findViewById(R.id.title)).setText(choiceViewModel.getTitle());
 
         RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
         AppCompatRadioButton appCompatRadioButton =
@@ -71,8 +71,9 @@ public class ChoiceView implements BaseView{
             }
 
             CaseClinical caseClinical = new CaseClinical();
-            caseClinical.setId(choiceViewModel.getId());
-            caseClinical.setName(choiceViewModel.getInfo().getName());
+            caseClinical.setSymptomItemModel(new SymptomItemModel());
+            caseClinical.getSymptomItemModel().setId(choiceViewModel.getId());
+            caseClinical.getSymptomItemModel().setName(choiceViewModel.getName());
             caseClinical.setValue(values);
 
             return caseClinical;

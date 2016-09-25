@@ -35,7 +35,7 @@ public class ComboboxView implements BaseView{
         List<String> items = new ArrayList<String>();
 
         for(int i = 0; i < dataViewItemModel.length; i++) {
-            items.add(dataViewItemModel[i].getInfo().getName());
+            items.add(dataViewItemModel[i].getName());
         }
 
         // Creating adapter for spinner
