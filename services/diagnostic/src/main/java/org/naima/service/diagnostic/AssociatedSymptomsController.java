@@ -31,15 +31,15 @@ public class AssociatedSymptomsController {
     private final String kConfidence = "CONFIDENCE";
 
     @RequestMapping(value="/associatedsymptoms", method=RequestMethod.POST, consumes="application/json")
-    public List<Symptom> associatedsymptoms(@RequestBody List<Symptom> hasSymptoms) {
+    public List<Symptom> associatedsymptoms(@RequestBody List<SymptomValue> hasSymptoms) {
 
       SetOperations<String,String> setOps = redisTemplate.opsForSet();
       Set<String> symptoms = new HashSet<String>();
       String tempInputsetKey = "TEMP:CSM:" + Long.toString(System.currentTimeMillis());
 
-      for(Symptom s: hasSymptoms) {
-        symptoms.add(s.getId());
-        setOps.add(tempInputsetKey, s.getId());
+      for(SymptomValue s: hasSymptoms) {
+        symptoms.add(s.getSymptom().getId());
+        setOps.add(tempInputsetKey, s.getSymptom().getId());
       }
       List<Symptom> associatedSymptoms = new ArrayList<Symptom>();
 
