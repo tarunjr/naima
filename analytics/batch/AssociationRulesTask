@@ -1,0 +1,52 @@
+package org.naima.analytics.batch
+
+import org.apache.spark.SparkConf
+
+import org.naima.avro.Case
+import com.twitter.bijection.Injection
+import com.twitter.bijection.avro.SpecificAvroCodecs
+
+import java.util.HashMap
+import scala.util.{Failure, Success}
+
+object AssociationRulesTask {
+  def main(args: Array[String]) {
+    val brokers = "localhost:9092"
+    val topics = "pingin"
+
+    val sparkConf = new SparkConf().setAppName("AssociationRulesTask")
+    val ssc = new StreamingContext(sparkConf, Seconds(2))
+
+
+    // We also use a broadcast variable for Bijection/Injection.
+    //val converter = ssc.sparkContext.broadcast(specificAvroBinaryInjectionForPet)
+
+    kafkaStream.map{ bytes =>
+      implicit val converter = SpecificAvroCodecs.toBinary[Ping]
+      converter.invert(bytes) match {
+        case Success(ping) => ping
+        case Failure(e) =>
+      }
+    }
+    .foreachRDD{ rdd =>
+          rdd.foreachPartition{ partitionOfRecords =>
+                val brokers2 = "localhost:9092"
+
+                // Zookeeper connection properties
+                val props = new HashMap[String, Object]()
+                props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers2)
+                props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+                  "org.apache.kafka.common.serialization.StringSerializer")
+                props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+                  "org.apache.kafka.common.serialization.StringSerializer")
+
+                val producer = new KafkaProducer[String, String](props)
+
+                partitionOfRecords.foreach { case ping: Ping =>
+                    val message=new ProducerRecord[String, String]("pingout","key",ping.getName().toString())
+                    producer.send(message)
+                }
+        }
+    }
+  }
+}

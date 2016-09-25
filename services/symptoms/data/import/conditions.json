@@ -1,0 +1,152 @@
+{
+	id: "GST-O1",
+	name: "Abdomen Pain",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"},
+			{id:"CS-02", name: "Nausea", Value:"No"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-O2",
+	name: "Appendicitis",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain", Value:"No"},
+			{id:"CS-02", name: "Nausea", Value:"Yes"}
+		],
+		test: []
+	}	
+}
+{
+	id: "GST-03",
+	name: "Ulcer",
+	speciality: { id:"SP-01", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain",Value:"Yes"},
+			{id:"CS-02", name: "Nausea",Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-O4",
+	name: "Fissure",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"},
+			{id:"CS-07", name: "Bleeding", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-O5",
+	name: "Acute Mesenteric Ischemia",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"},
+			{id:"CS-07", name: "Bleeding", Value:"Yes"}
+		],
+		test: [{id:"DT-02", name:"CT Scan"}]
+	}
+}
+{
+	id: "GST-O6",
+	name: "Acute Perforation",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-03", name: "Vommiting", Value:"No"},
+			{id:"CS-02", name: "Nausea", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-O7",
+	name: "Acute Perforation",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-03", name: "Vommiting", Value:"No"},
+			{id:"CS-02", name: "Nausea", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-O8",
+	name: "Hernia",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-03", name: "Vommiting", Value:"No"},
+			{id:"CS-02", name: "Nausea", Value:"Yes"},
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-O9",
+	name: "ILeus",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-03", name: "Vommiting", Value:"No"},
+			{id:"CS-02", name: "Nausea", Value:"Yes"},
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"},
+			{id:"CS-04", name: "Stool", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "GST-10",
+	name: "Intestinal Obstruction",
+	speciality: { id:"SP_GST", name: "Gastrology"},
+	data: {
+		clinical: [
+			{id:"CS-03", name: "Vommiting", Value:"No"},
+			{id:"CS-01", name: "Abdomen Pain", Value:"Yes"},
+			{id: "CS-10", name:"Flatus", Value:"No"},
+			{id: "CS-12", name:"Diarrhea", Value:"No"},
+			{id: "CS-11", name:"Constipation", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "ENT-01",
+	name: "Sinus",
+	speciality: { id:"SP_ENT", name: "ENT"},
+	data: {
+		clinical: [
+			{id:"CS-08", name: "Fever", Value:"Yes"},
+			{id:"CS-13", name: "Headache", Value:"Yes"},
+			{id:"CS-14", name: "Cold", Value:"Yes"}
+		],
+		test: []
+	}
+}
+{
+	id: "ENT-02",
+	name: "Allergy",
+	speciality: { id:"SP_ENT", name: "ENT"},
+	data: {
+		clinical: [
+			{id:"CS-08", name: "Fever", Value:"No"},
+			{id:"CS-13", name: "Headache", Value:"Yes"},
+			{id:"CS-14", name: "Cold", Value:"No"}
+		],
+		test: []
+	}
+}

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Naima Doctors</string>
+    <string name="main_create">Create</string>
+    <string name="main_open">Open</string>
+    <string name="main_pending">Pending</string>
+    <string name="main_diagnose">Diagnose</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="patient_name">Patient Name:</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="next">Next</string>
+    <string name="submit">Submit</string>
+</resources>

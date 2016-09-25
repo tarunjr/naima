@@ -1,0 +1,51 @@
+{
+	name: "Vikram Mehta",
+	id: "DT-01",
+	address: {
+		locality: "Ambegaon",
+		subDistrict: "Mulshi",
+		district: "Pune"
+	},
+	speciality: [{ id:"SP_GST", name: "Gastrology"},
+				{ id:"SP_INT", name: "Internal Medicine"}]	
+}
+{
+	name: "Akash Kumar",
+	id: "DT-02",
+	address: {
+		locality: "Halli",
+		subDistrict: "Tumkur",
+		district: "Bangalore"
+	},
+	speciality: [{ id:"SP_GST", name: "Gastrology"}]
+}
+{
+	name: "Sheela Dikshit",
+	id: "DT-03",
+	address: {
+		locality: "Gaonthan",
+		subDistrict: "Vasai",
+		district: "Mumbai"
+	},
+	speciality: [{ id:"SP_GST", name: "Gastrology"}]
+}			
+{
+	name: "Vikram Mehta",
+	id: "DT-02",
+	address: {
+		locality: "Tal",
+		subDistrict: "Khadala",
+		district: "Pune"
+	},
+	speciality: [{ id:"SP_ENT", name: "ENT"}]
+}
+{
+	name: "SD Bhargava",
+	id: "DT-02",
+	address: {
+		locality: "Satara",
+		subDistrict: "Lohgaon",
+		district: "Nashik"
+	},
+	speciality: [{ id:"SP_ENT", name: "ENT"}]
+}

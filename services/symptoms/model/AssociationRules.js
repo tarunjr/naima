@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-var rulesSchema = new Schema({
+var AssociationRuleSchema = {
   	left: [String],
     right: [String],
     confidence: Number
-  });
-module.exports = mongoose.model('AssociationRules', rulesSchema);
+  }
+
+module.exports = new mongoose.Schema(AssociationRuleSchema);
+module.exports.AssociationRuleSchema = AssociationRuleSchema;

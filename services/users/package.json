@@ -1,0 +1,19 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": "Users Service",
+  "main": "app.js",
+  "keywords": [
+    "naima"
+  ],
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "tarun",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "4.6.0",
+    "express": "4.14.0",
+    "body-parser": "1.15.2"
+  }
+}

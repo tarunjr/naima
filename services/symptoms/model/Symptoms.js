@@ -1,8 +1,8 @@
+/*
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
 
-var symptomsSchema = new Schema({
+var SymptomSchema = {
   	id:  String,
     type: String,
   	info: {
@@ -11,8 +11,8 @@ var symptomsSchema = new Schema({
       	format: String,
       	options: [String]
   	}
-  });
-module.exports = mongoose.model('Symptoms', symptomsSchema);
+  }
 
-
-
+module.exports = new mongoose.Schema(SymptomSchema);
+module.exports.SymptomSchema  = SymptomSchema;
+*/

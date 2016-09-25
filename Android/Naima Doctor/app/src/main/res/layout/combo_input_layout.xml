@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+   <RelativeLayout
+        android:id="@+id/patient"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/patient_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/patient_name"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_toRightOf="@id/patient_label"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <!--<EditText
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:inputType="numberDecimal"
+        android:hint="Patient Weight"/>
+    <EditText
+        android:id="@+id/pulse"
+        android:layout_below="@id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:inputType="numberDecimal"
+        android:hint="Patient Pulse"/>
+    <EditText
+        android:id="@+id/bp"
+        android:layout_below="@id/pulse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Patient BP"/>-->
+</RelativeLayout>

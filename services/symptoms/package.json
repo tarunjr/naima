@@ -1,16 +1,13 @@
 {
-  "name": "symptoms",
+  "name": "medical",
   "version": "1.0.0",
-  "description": "Symptoms Service",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Medical intelligence service",
+  "main": "app.js",
   "keywords": [
     "naima"
   ],
   "author": "tarun",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "mongoose": "4.6.0",
     "express": "4.14.0",

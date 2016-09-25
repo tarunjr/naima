@@ -1,0 +1,25 @@
+SET  STD:1 '{ "id": "1","title":"Enter Weight?", "name": "Weight","format": "Numeric"}'
+SET  STD:2  '{"id": "2","title":"Enter Pulse count?","name": "Pulse","format": "Numeric"}'
+SET  STD:3  '{"id": "3","title":"Enter Height?","name": "Height","format": "Numeric"}'
+SET  STD:4  '{"id": "4","title":"Enter BP (High)?","name": "BPH","format": "Numeric"}'
+SET  STD:5  '{"id": "5","title":"Enter BP (Low)?","name": "BPL","format": "Numeric"}'
+SET  CSM:1 '{"id": "1","title": "Where is the Abdomen pain?","name": "Abdomen Pain","format": "List","options": ["Upper Left", "Upper Right", "Lower abdomen"]}'
+SET  CSM:2 '{"id": "2","title": "Did you have nausea?","name": "Nausea","format": "Boolean"}'
+SET  CSM:3  '{"id": "3","title": "Did you vomit, enter ?","name": "Vomiting","format": "List","options": ["Never","Once","Twice","More"]}'
+SET  CSM:4 '{"id":  "4","title": "Nature of stool?","name": "Stool","format": "list","options": ["Hard","Soft","Liquid"]}'
+SET  TEST:1  '{"id": "1","title": "What is the RBC count?","name": "RBC","format": "Numeric"}'
+SET  TEST:2 '{"id": "2", "title": "Enter CT Scan summary","name": "CT Scan","format": "Text"}'
+SET  TEST:3  '{"id": "3", "title": "Enter X-Ray report?","name": "X-Ray report","format": "Text"}'
+SET  TEST:4 '{"id": "4","title": "Enter Urine report","name": "Urine report","format": "Text"}'
+
+
+SADD RULE:1:ANTECEDENT  1 2
+SADD RULE:1:CONSEQUENT  3 4
+SET  RULE:1:CONFIDENCE  0.9
+
+SADD RULE:2:ANTECEDENT  1
+SADD RULE:2:CONSEQUENT  2
+SET  RULE:2:CONFIDENCE  0.8
+SADD RULES 2
+
+HMSET SPECIALITIES 1 "GastroEntologist" 2 "Nuerologist" 3 "Physician" 4 "ENT"

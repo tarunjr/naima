@@ -1,0 +1,16 @@
+{
+  "name": "cases",
+  "version": "1.0.0",
+  "description": "Medical Case Service",
+  "main": "index.js",
+  "keywords": [
+    "naima"
+  ],
+  "author": "tarun",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "4.6.0",
+    "express": "4.14.0",
+    "body-parser": "1.15.2"
+  }
+}
