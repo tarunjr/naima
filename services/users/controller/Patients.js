@@ -1,23 +1,26 @@
 const mongoose = require('mongoose');
+// native promises
+mongoose.Promise = global.Promise;
+
 
 exports.get = function(req, res) {
+	var query = {};
+	// Filteration based on address and id
+	if (req.query.locality != null){
+		 query = {'address.locality': req.query.locality };
+	} else if (req.query.subdistrict != null){
+		 query = {'address.subDistrict': req.query.subdistrict };
+	} else if (req.query.district != null){
+		 query = {'address.district': req.query.district };
+	} else if (req.params.patientId != null) {
+		query = {'id': req.params.patientId};
+	}
 	var Patient = mongoose.model('Patient');
-	Patient.find({}, function(err, patient) {
-    if (err) {
-			console.log(err);
-			res.send(JSON.stringify({}));
-		} else {
-			res.send(JSON.stringify(patient));
-		}
-  });
-}
-exports.getById= function(req, res) {
-	var Patient = mongoose.model('Patient');
-	var patientId = req.params.patientId;
-	Patient.findOne({id:patientId}, function(err, patient) {
-    if (err)
-      res.send(JSON.stringify({}));
-    else
-      res.send(JSON.stringify(patient));
-  });
+
+	var promise = Patient.find(query).exec();
+	promise.then(function(patient){
+		res.send(JSON.stringify(patient, null,'\t'));
+	}).catch(function(err){
+		res.send(JSON.stringify({}));
+	});
 }

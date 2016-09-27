@@ -11,14 +11,13 @@ module.exports = function() {
 	api.use(bodyparser.json());
 
 	api.get('/doctors/', doctors.get);
-  api.get('/doctors/id/:doctorId', doctors.getById);
-	api.get('/doctors/specialities/:specialityId', doctors.getBySpeciality);
+	api.get('/doctors/:doctorId', doctors.get);
 
 	api.get('/patients/', patients.get);
-  api.get('/patients/id/:patientId', patients.getById);
+  api.get('/patients/:patientId', patients.get);
 
 	api.get('/careproviders/', careproviders.get);
-  api.get('/careproviders/id/:providerId', careproviders.getById);
+  api.get('/careproviders/:providerId', careproviders.get);
 
   return api;
 }
