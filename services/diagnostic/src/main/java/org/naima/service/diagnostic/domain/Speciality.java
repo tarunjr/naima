@@ -1,4 +1,4 @@
-package org.naima.service.diagnostic;
+package org.naima.service.diagnostic.domain;
 
 public class Speciality {
   private String id;

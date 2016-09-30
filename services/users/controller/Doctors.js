@@ -16,11 +16,11 @@ exports.get = function(req, res) {
 		query = {'id': req.params.doctorId};
 	}
 	var Doctor = mongoose.model('Doctor');
-	Doctor.find(query, function(err, doctor) {
-    if (err)
-      res.send(JSON.stringify({}));
-    else {
-			res.send(JSON.stringify(doctor, null,'\t'));
-		}
-  });
+
+	var promise = Doctor.find(query).exec();
+	promise.then(function(doctor){
+		res.send(JSON.stringify(doctor, null,'\t'));
+	}).catch(function(err){
+		res.send(JSON.stringify({}));
+	});
 }

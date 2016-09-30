@@ -1,4 +1,5 @@
-package org.naima.service.diagnostic;
+package org.naima.service.diagnostic.domain;
+
 import java.util.List;
 
 public class Condition {

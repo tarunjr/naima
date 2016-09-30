@@ -1,4 +1,4 @@
-package org.naima.service.diagnostic;
+package org.naima.service.diagnostic.repository;
 
 public final class KeyNameSpace {
   public static final String AssociationRuleNamespace = "RULE";
