@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 exports.get = function(req, res) {
-	var query = buildDBQuery(req.params);
+	var query = buildDBQuery(req);
 	var Cases = mongoose.model('Case');
 
 	console.log(query);
@@ -14,7 +14,7 @@ exports.get = function(req, res) {
 	});
 }
 
-function buildDBQuery(var params){
+function buildDBQuery(req){
 		var query = {};
 		if (req.query.status != null)
 				query['status'] = req.query.status;
