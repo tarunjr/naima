@@ -18,38 +18,46 @@ import java.util.HashSet;
 public class AssociatedSymptomsService {
     @Autowired
     private AssociatedSymptomsRuleRepository associatedSymptomsRuleRepository;
+    @Autowired
     private SymptomRepository symptomRepository;
 
     public List<AssociatedSymptomsRule> findAll() {
         return associatedSymptomsRuleRepository.findAll();
     }
     public List<Symptom> findAssociatedSymptoms(List<SymptomValue> symptomValues) {
-        Set<String> symptomIds = new HashSet<String>();
+        Set<String> hasSymptomIds = new HashSet<String>();
         for(SymptomValue sv: symptomValues) {
-            symptomIds.add(sv.getSymptom().getId());
+            hasSymptomIds.add(sv.getSymptom().getId());
         }
-        List<AssociatedSymptomsRule> rules = findAllCandidateRules(symptomIds);
-        AssociatedSymptomsRule rule = findBestRule(rules);
-
-        return null;
+        List<AssociatedSymptomsRule> rules = findAllCandidateRules(hasSymptomIds);
+        AssociatedSymptomsRule rule = findBestRule(rules, hasSymptomIds);
+        return findExclusiveSymptoms(rule, hasSymptomIds);
     }
 
     private List<AssociatedSymptomsRule> findAllCandidateRules(Set<String> inputIds) {
         return associatedSymptomsRuleRepository.findCandidates(inputIds);
     }
-    private AssociatedSymptomsRule findBestRule(List<AssociatedSymptomsRule> rules) {
+    private AssociatedSymptomsRule findBestRule(List<AssociatedSymptomsRule> rules, Set<String> excludeIds) {
         Double maxConfidence = Double.MIN_VALUE;
         AssociatedSymptomsRule selectedRule = null;
 
         for(AssociatedSymptomsRule rule: rules) {
-            if (rule.getConfidence() > maxConfidence) {
+            if (findExclusiveSymptoms(rule,excludeIds).size() > 0 && rule.getConfidence() > maxConfidence) {
                 selectedRule = rule;
+                maxConfidence = rule.getConfidence();
             }
         }
+        if (selectedRule != null)
+          System.out.println("Best Candidate:" + selectedRule.toString());
+        else
+          System.out.println("Best Candidate: NONE");
+
         return selectedRule;
     }
     private List<Symptom> findExclusiveSymptoms(AssociatedSymptomsRule rule, Set<String> excludeIds) {
       List<Symptom>  symptoms = new ArrayList<Symptom>();
+      if (rule == null)
+        return symptoms;
       for(String symptomKey: rule.getConsequent()) {
           if (excludeIds.contains(symptomKey))
             continue;

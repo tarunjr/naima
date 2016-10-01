@@ -32,4 +32,8 @@ public class AssociatedSymptomsRule {
     public void setConfidence(Double confidence){
         this.confidence = confidence;
     }
+    @Override
+    public String toString() {
+          return "Rule:" + getId() + " " + getAncedents() + " -> " + getConsequent() + " , confidence:" + getConfidence();
+    }
 }

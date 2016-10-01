@@ -47,10 +47,11 @@ public class SymptomRepository {
     ObjectMapper mapper = new ObjectMapper();
     ValueOperations<String,String>  valueOps = redisTemplate.opsForValue();
     Symptom symptom = null;
+    String key = KeyNameSpace.SymptomNamespace + ":" + id;
 
     System.out.println(id);
     try {
-        String json  = valueOps.get(id);
+        String json  = valueOps.get(key);
         symptom = mapper.readValue(json, Symptom.class);
     } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
     } catch (java.io.IOException iox) {

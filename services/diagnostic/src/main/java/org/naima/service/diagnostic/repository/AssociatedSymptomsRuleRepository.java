@@ -1,18 +1,17 @@
 package org.naima.service.diagnostic.repository;
 
-import org.naima.service.diagnostic.domain.AssociatedSymptomsRule;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.HashSet;
-
+import org.naima.service.diagnostic.domain.AssociatedSymptomsRule;
+import org.omg.CORBA.SystemException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.SetOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Repository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
 public class AssociatedSymptomsRuleRepository {
@@ -54,6 +53,7 @@ public class AssociatedSymptomsRuleRepository {
 
       Set<String> symptoms = new HashSet<String>();
       String tempInputsetKey = "TEMP:CSM:" + Long.toString(System.currentTimeMillis());
+      System.out.println("Has Symptoms:" + symptomIds);
       for(String id: symptomIds) {
         setOps.add(tempInputsetKey, id);
       }
@@ -65,7 +65,7 @@ public class AssociatedSymptomsRuleRepository {
 
          Set<String> ancedents =  setOps.members(KeyNameSpace.AssociationRuleNamespace +
                                                    ":" + ruleId + ":" + kAntecedent);
-         System.out.println(ruleId + " : " + ancedents);
+         System.out.println("Initial Candidate:" + ruleId + " : " + ancedents);
          // Check if the rule is selected
          if (intersect.size() == ancedents.size()) {
             Set<String> consequents =  setOps.members(KeyNameSpace.AssociationRuleNamespace +
@@ -80,9 +80,10 @@ public class AssociatedSymptomsRuleRepository {
             rule.setConsequent(consequents);
             rule.setConfidence(Double.valueOf(strConfidence));
             rules.add(rule);
-
+            System.out.println("Selected Candidate:" + rule.toString());
          }
       }
+
       return rules;
     }
 }
