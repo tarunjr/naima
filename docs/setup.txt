@@ -1,0 +1,67 @@
+Setting up the naima system on a single EC2 ubuntu free tier instance
+
+1. Install Java 8
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+
+2. Install GIT
+sudo apt-get install git
+
+--- Setting up the Diagnostic Service ----
+
+1. Install Redis
+sudo add-apt-repository ppa:chris-lea/redis-server
+sudo apt-get update
+sudo apt-get install redis-server
+
+Check redis server status
+redis-benchmark -q -n 1000 -c 10 -P 5
+
+
+2. Get the naima code the the machine
+git clone https://github.com/tarunjr/naima.git
+
+3. Load initial data into redis
+
+4. Install maven
+sudo apt-get install maven
+
+5. Build and Run the diagnostic service
+cd ~/naima/service/diagnostic
+mvn clean
+mvn package
+
+6. Running the diagnostic service
+nohup java -jar target/diagnostic-1.0.0.jar &
+
+--- Setting up Users, Cases Service ----
+
+1. Get the naima code the the EC2 ubuntu machine
+git clone https://github.com/tarunjr/naima.git
+
+2. Install MongoDB
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+3. Load Initial data into Mongo
+cd to ~/naima/data/mongo
+chmod 777 db_init.sh
+./db_init.sh
+
+
+4. Install Node
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+
+4. Start the services
+4.1 Update .bashrc with following exports
+export MONGO_PORT_27017_TCP_PORT=27017
+export MONGO_PORT_27017_TCP_ADDR=localhost
+. .bashrc
+
+
+4.2 Start the cases service

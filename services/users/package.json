@@ -12,8 +12,10 @@
   "author": "tarun",
   "license": "MIT",
   "dependencies": {
-    "mongoose": "4.6.0",
+    "body-parser": "1.15.2",
+    "compression": "^1.6.2",
     "express": "4.14.0",
-    "body-parser": "1.15.2"
+    "mongoose": "4.6.0",
+    "querystring": "^0.2.0"
   }
 }

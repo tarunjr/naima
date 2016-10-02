@@ -17,9 +17,14 @@ var CaseSchema = {
   	owner: String,
   	data: {
   		clinical: [{
-  			id: String,
-  			name: String,
-  			value: String
+  			symptom: {
+          id: String,
+          name: String,
+          format: String,
+          title: String,
+          options: [String]
+        },
+        value:[String]
   		}],
   		test: [{
   			id: String,

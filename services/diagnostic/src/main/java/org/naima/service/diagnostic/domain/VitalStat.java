@@ -1,4 +1,4 @@
-package org.naima.service.diagnostic;
+package org.naima.service.diagnostic.domain;
 
 import java.util.List;
 import java.util.ArrayList;

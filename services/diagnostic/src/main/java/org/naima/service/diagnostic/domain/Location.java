@@ -1,4 +1,4 @@
-package org.naima.service.diagnostic;
+package org.naima.service.diagnostic.domain;
 
 public class Location {
     private String locality;
@@ -22,5 +22,9 @@ public class Location {
     }
     public void setDistrict(String district) {
       this.district = district;
+    }
+    @Override
+    public String toString() {
+        return district + "." + subDistrict + "." + locality;
     }
 }

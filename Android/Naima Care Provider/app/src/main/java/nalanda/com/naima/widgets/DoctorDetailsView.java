@@ -25,7 +25,7 @@ public class DoctorDetailsView implements BaseView {
         View view = activity.getLayoutInflater().inflate(R.layout.doctor_details, null, false);
 
         ((TextView)view.findViewById(R.id.doctor_name)).setText(doctorDetails.getName());
-        ((TextView)view.findViewById(R.id.speciality)).setText(doctorDetails.getSpeciality()[0].getName());
+        ((TextView)view.findViewById(R.id.speciality)).setText(doctorDetails.getSpeciality().getName());
         ((TextView)view.findViewById(R.id.place)).setText(doctorDetails.getAddress().getDistrict());
 
         return view;

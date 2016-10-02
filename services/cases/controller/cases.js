@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
 
-exports.get_open_cp_data = function(req, res) {
-	var provider_id = req.params.id;
+exports.get = function(req, res) {
+	var query = buildDBQuery(req);
 	var Cases = mongoose.model('Case');
-	console.log(provider_id)
-	Cases.find({ status:'open', 'provider.id': provider_id, owner:"cp"}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases));
-	});
 
-}
+	console.log(query);
 
-exports.get_all_data = function(req, res) {
-	var Cases = mongoose.model('Case');
-	Cases.find({ }, function(err, cases) {
+	Cases.find(query, function(err, cases) {
 	if (err)
 	  res.send(JSON.stringify({}));
 	else
@@ -23,70 +14,29 @@ exports.get_all_data = function(req, res) {
 	});
 }
 
-exports.get_open_doc_data = function(req, res) {
-	var provider_id = req.params.id;
-	var Cases = mongoose.model('Case');
-	Cases.find({ status:'open', 'doctor.id': provider_id, owner:"doctor"}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases));
-	});
+function buildDBQuery(req){
+		var query = {};
+		if (req.query.status != null)
+				query['status'] = req.query.status;
+		if (req.query.owner != null) {
+			 query['owner'] = req.query.owner;
+			 if (req.query.ownerid != null) {
+				 	if(req.query.owner == 'doctor') {
+						query['doctor'] = {};
+						query['doctor']['id'] = req.query.ownerid;
+					} else if (req.query.owner == 'careprovider') {
+						query['provider'] = {};
+						query['provider']['id'] = req.query.ownerid;
+					}
+			 }
+		}
+		if (req.query.patientid != null) {
+			 query['patient'] = {};
+			 query['patient']['id'] = req.query.patientid;
+		}
+		return query;
 }
 
-exports.get_one_case = function(req, res) {
-	var provider_id = req.params.id;
-	var Cases = mongoose.model('Case');
-	Cases.find({ _id: provider_id}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases[0]));
-	});
-}
-
-exports.get_pending_cp_data = function(req, res) {
-	var provider_id = req.params.id;
-	var Cases = mongoose.model('Case');
-	Cases.find({ status:'open', 'provider.id': provider_id, owner:"doctor"}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases));
-	});
-}
-
-exports.get_pending_doc_data = function(req, res) {
-	var provider_id = req.params.id;
-	var Cases = mongoose.model('Case');
-	Cases.find({ status:'open', 'doctor.id': provider_id, owner:"cp"}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases));
-	});
-}
-
-exports.get_closed_cp_data = function(req, res) {
-	var provider_id = req.params.id;
-	var Cases = mongoose.model('Case');
-	Cases.find({ status:'close', 'provider.id': provider_id}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases));
-	});
-}
-exports.get_existing_patient_data = function(req, res) {
-	var provider_id = req.params.patientid;
-	var Cases = mongoose.model('Case');
-	Cases.find({'patientid.id': provider_id}, function(err, cases) {
-	if (err)
-	  res.send(JSON.stringify({}));
-	else
-	  res.send(JSON.stringify(cases));
-	});
-}
 exports.put_case_data = function(req, res) {
 	pid = req.params.id;
 	console.log("Id is " + pid);
@@ -105,12 +55,26 @@ exports.put_new_case_data = function(req, res) {
 	console.log(data);
 	case_data = { status : "open", owner :"doctor", data : data.data, provider: data.provider, patient: data.patient };
 
-	var Cases = mongoose.model('Cases');
+	var Cases = mongoose.model('Case');
 	// TODO insert doctor recommendation here.
+
+	var speciality = {};
+	speciality['id'] = "2";
+	speciality['name'] = "GastroEntrology";
+
+	var address = {};
+	address['locality'] = 'koramangala';
+	address['subDistrict'] = 'Bangalore';
+	address['district'] = 'Bangalore';
+
 	case_data.doctor = {};
 	case_data.doctor['id'] = 'DT-01';
 	case_data.doctor['name'] = 'Dr Vikram Mehta';
+	case_data.doctor['speciality'] = speciality;
+	case_data.doctor['address'] = address;
+
 	console.log("Hard coded doctor");
+	var selectedDoctor = case_data.doctor;
 
 	Cases.create(case_data, function(err, data){
 		if(err)

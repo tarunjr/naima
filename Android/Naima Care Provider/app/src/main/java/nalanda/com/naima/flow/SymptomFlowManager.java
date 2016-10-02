@@ -35,11 +35,16 @@ import nalanda.com.naima.widgets.WidgetFactory;
  * Created by ps1 on 9/10/16.
  */
 public class SymptomFlowManager {
-    public static final String symptomStandardUrl = "http://ec2-52-201-244-120.compute-1.amazonaws.com:8080/vitalstats";
-    public static final String symptomClinicalUrl = "http://ec2-52-201-244-120.compute-1.amazonaws.com:8080/symptoms";
-    public static final String symptomDiagnosticUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/symptoms/diagnostic";
-    public static final String caseNewUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/cases/new";
-    public static final String associatedSymptomsUrl = "http://ec2-52-201-244-120.compute-1.amazonaws.com:8080/associatedsymptons";
+    // Diagnostic service endpoint.
+    // Updated by Tarun on 1st Oct with latest EC2 instance URL
+    public static final String symptomStandardUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/vitalstats";
+    public static final String symptomClinicalUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/symptoms";
+    public static final String symptomDiagnosticUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/symptoms/tests";
+    public static final String associatedSymptomsUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/associatedsymptoms";
+
+    // Cases Service endpoing
+    public static final String caseNewUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases/new";
+
     public static final String JSON_CONTENT_TYPE = "application/json";
 
     private BaseDataFragment mDataFragment;
@@ -265,12 +270,17 @@ public class SymptomFlowManager {
                 }
 
                 Button footerButton = (Button) (new NextFooterButton()).getView(mDataFragment.getActivity());
-                footerButton.setText(R.string.submit);
+                footerButton.setText(R.string.next);
                 footerButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         populateDataForClinicalState();
-                        goToCaseSubmitState();
+//                        goToCaseSubmitState();
+                        if(mViews != null && mViews.size() > 0) {
+                            goToSubmitState();
+                        } else {
+                            goToCaseSubmitState();
+                        }
                     }
                 });
 

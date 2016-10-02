@@ -6,7 +6,7 @@ package nalanda.com.naima.models;
 public class DoctorDetails {
     String id;
     String name;
-    Speciality[] speciality;
+    Speciality speciality;
     Address address;
     public class Speciality {
         String id;
@@ -74,11 +74,11 @@ public class DoctorDetails {
         this.name = name;
     }
 
-    public Speciality[] getSpeciality() {
+    public Speciality getSpeciality() {
         return speciality;
     }
 
-    public void setSpeciality(Speciality[] speciality) {
+    public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
 

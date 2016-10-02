@@ -43,34 +43,27 @@ Following domain entities will be modelled in the system.
 ### Services Design
 Following are the runtime services component of the system.
 
-#### * Users Service:
-Manages Patient, Doctors and  Care Providers entities.Developed in Node.JS and MongoDB. Exposes REST API
+* Users Service: Manages Patient, Doctors and  Care Providers entities.Developed in Node.JS and MongoDB. Exposes REST API
 
-#### * Case Service:
-Manages Case entity and workflow between Doctor/Care Provider. Developed in Node.JS and MongoDB. Exposes REST API
+* Case Service: Manages Case entity and workflow between Doctor/Care Provider. Developed in Node.JS and MongoDB. Exposes REST API
 
-#### * Diagnostic Service:
-Maintains a repository of medical knowledge about Condition, Symptom, Test and Speciality. Using this knowledge and additional context It generates ranked ordering of Symptom and Test questions to be asked/collected next. Developed in Spring.Boot/Java and Redis. Uses the result of the Analytical component to adapt its behavior.
+* Diagnostic Service: Maintains a repository of medical knowledge about Condition, Symptom, Test and Speciality. Using this knowledge and additional context It generates ranked ordering of Symptom and Test questions to be asked/collected next. Developed in Spring.Boot/Java and Redis. Uses the result of the Analytical component to adapt its behavior.
 
 ### Analytics Design:
 Following are the analytics components. Apache Spark is the runtime framework using Kafka as data ingestion and output
 component.
 
-#### * Symptoms association rules mining:
-A batch component in Apache Spark using FP-Growth algorithm from spark.mllib
-#### * Conditions Aggregation by region
-A streaming component in Apache Spark using spark.streaming to perform windowed aggregation of conditions diagnosed per region.
-#### * Conditions/Speciality prediction based on symptoms data
-A nearest neighbour type algorithm to classify as symptom to a speciality for doctor recommendation.
+* Symptoms association rules mining: A batch component in Apache Spark using FP-Growth algorithm from spark.mllib
+
+* Conditions Aggregation by region: A streaming component in Apache Spark using spark.streaming to perform windowed aggregation of conditions diagnosed per region.
+
+* Conditions/Speciality prediction: A nearest neighbour class of algorithm to classify a symptom to a speciality for doctor recommendation.
 
 
 ### Application Design:
 Application components are implemented a native android applications interacting with only the services component.
 Following two are the application components.
 
-#### * Care Provider UX:  
-User interface for Examiner to prepare a Case and manage the Review and Treatment. Developed as a native Android application
+* Care Provider UX: User interface for Examiner to prepare a Case and manage the Review and Treatment. Developed as a native Android application
 
-#### * Doctor UX:
-User interface for the Doctor to Review the Case and finalize the Treatment.
-Developed as a native Android application.
+* Doctor UX: User interface for the Doctor to Review the Case and finalize the Treatment. Developed as a native Android application.

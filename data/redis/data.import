@@ -11,6 +11,7 @@
  SET  TEST:2 '{"id": "2", "title": "Enter CT Scan summary","name": "CT Scan","format": "Text"}'
  SET  TEST:3  '{"id": "3", "title": "Enter X-Ray report?","name": "X-Ray report","format": "Text"}'
  SET  TEST:4 '{"id": "4","title": "Enter Urine report","name": "Urine report","format": "Text"}'
+ SET  CND:1 '{"id":"id", "name": "name", "speciality": "speciality", "symptoms": ["1","2"] }'
 
 
  SADD RULE:1:ANTECEDENT  1 2
