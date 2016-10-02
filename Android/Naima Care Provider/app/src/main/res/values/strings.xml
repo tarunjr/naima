@@ -22,4 +22,7 @@
 
     <string name="landing_clinical_title">Clinical Title</string>
     <string name="landing_clinical_content">Clinical Screen</string>
+
+    <string name="landing_submit_title">Submit Title</string>
+    <string name="landing_submit_content">Submit Screen</string>
 </resources>

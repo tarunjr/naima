@@ -16,13 +16,13 @@ public class WidgetFactory {
     public BaseView getViewWidget(String viewName, BaseViewModel viewModel) {
         BaseView viewWidget = null;
 
-        if(WIDGET_NUMERIC.equals(viewName)) {
+        if(WIDGET_NUMERIC.equalsIgnoreCase(viewName)) {
             viewWidget = new NumericView(viewModel);
-        } else if(WIDGET_BOOLEAN.equals(viewName)) {
+        } else if(WIDGET_BOOLEAN.equalsIgnoreCase(viewName)) {
             viewWidget = new ChoiceView(viewModel);
-        } else if(WIDGET_MULTIPLE_CHOICE.equals(viewName)) {
+        } else if(WIDGET_MULTIPLE_CHOICE.equalsIgnoreCase(viewName)) {
             viewWidget = new MultipleChoiceView(viewModel);
-        } else if(WIDGET_LANDING.equals(viewName)) {
+        } else if(WIDGET_LANDING.equalsIgnoreCase(viewName)) {
             viewWidget = new LandingTableView(viewModel);
         }
 

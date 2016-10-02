@@ -58,7 +58,7 @@ public class SymptomFlowManager {
     public static final int SYMPTOM_STATE_LANDING_CLINICAL = 6;
     public static final int SYMPTOM_STATE_CLINICAL = 7;
     public static final int SYMPTOM_STATE_DIAGNOSTIC = 8;
-    public static final int SYMPTOM_STATE_SUBMIT = 9;
+    public static final int SYMPTOM_STATE_LANDING_SUBMIT = 9;
     public static final int SYMPTOM_STATE_CASE_SUBMIT = 10;
     private int mCurrentState;
 
@@ -83,7 +83,7 @@ public class SymptomFlowManager {
         populatePatientData();
         populateProviderData();
 //        goToSymptomStandardState();
-        goToSymptomStandardLandingState();
+        goToLandingState(SYMPTOM_STATE_LANDING_STANDARD);
     }
 
     private void continueStartFlow() {
@@ -112,12 +112,75 @@ public class SymptomFlowManager {
     private void populateDataForStandardState() {
     }
 
-    public void goToSymptomStandardLandingState() {
-        mCurrentState = SYMPTOM_STATE_LANDING_STANDARD;
+    private String getTitle(int state) {
+        String title = null;
+        switch (state) {
+            case SYMPTOM_STATE_LANDING_STANDARD:
+                title = mDataFragment.getActivity().getString(R.string.landing_standard_title);
+                break;
+            case SYMPTOM_STATE_LANDING_COMBO:
+                title = mDataFragment.getActivity().getString(R.string.landing_combo_title);
+                break;
+            case SYMPTOM_STATE_LANDING_CLINICAL:
+                title = mDataFragment.getActivity().getString(R.string.landing_clinical_title);
+                break;
+            case SYMPTOM_STATE_LANDING_SUBMIT:
+                title = mDataFragment.getActivity().getString(R.string.landing_submit_title);
+                break;
+            default:
+                break;
+        }
+
+        return title;
+    }
+
+    private String getContent(int state) {
+        String content = null;
+        switch (state) {
+            case SYMPTOM_STATE_LANDING_STANDARD:
+                content = mDataFragment.getActivity().getString(R.string.landing_standard_content);
+                break;
+            case SYMPTOM_STATE_LANDING_COMBO:
+                content = mDataFragment.getActivity().getString(R.string.landing_combo_content);
+                break;
+            case SYMPTOM_STATE_LANDING_CLINICAL:
+                content = mDataFragment.getActivity().getString(R.string.landing_clinical_content);
+                break;
+            case SYMPTOM_STATE_LANDING_SUBMIT:
+                content = mDataFragment.getActivity().getString(R.string.landing_submit_content);
+                break;
+            default:
+                break;
+        }
+
+        return content;
+    }
+
+    private void goToNextState(int state) {
+        switch (state) {
+            case SYMPTOM_STATE_LANDING_STANDARD:
+                goToSymptomStandardState();
+                break;
+            case SYMPTOM_STATE_LANDING_COMBO:
+                goToSymptomComboState(false);
+                break;
+            case SYMPTOM_STATE_LANDING_CLINICAL:
+                goToSubmitState();
+                break;
+            case SYMPTOM_STATE_LANDING_SUBMIT:
+                goToCaseSubmitState();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void goToLandingState(final int state) {
+        mCurrentState = state;
 
         LandingTableViewModel landingTableViewModel = new LandingTableViewModel();
-        landingTableViewModel.setTitle(mDataFragment.getActivity().getString(R.string.landing_standard_title));
-        landingTableViewModel.setContent(mDataFragment.getActivity().getString(R.string.landing_standard_content);
+        landingTableViewModel.setTitle(getTitle(state));
+        landingTableViewModel.setContent(getContent(state));
 
         LandingTableView landingTableView =
                 (LandingTableView) widgetFactory.getViewWidget(WidgetFactory.WIDGET_LANDING, landingTableViewModel);
@@ -131,11 +194,9 @@ public class SymptomFlowManager {
         footerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               goToSymptomStandardState();
+               goToNextState(state);
             }
         });
-
-        views.add(footerButton);
 
         mDataFragment.updateView(views);
 
@@ -163,7 +224,7 @@ public class SymptomFlowManager {
                             @Override
                             public void onResponse(String response) {
                                 symptomModel = gson.fromJson(response, SymptomItemModel[].class);
-                                goToSymptomComboState(false);
+                                goToLandingState(SYMPTOM_STATE_LANDING_COMBO);
                             }
                         });
                     }
@@ -212,7 +273,7 @@ public class SymptomFlowManager {
         footerView.findViewById(R.id.done).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToSubmitState();
+                goToLandingState(SYMPTOM_STATE_LANDING_CLINICAL);
             }
         });
 
@@ -254,41 +315,39 @@ public class SymptomFlowManager {
 
     public void goToSymptomClinicalState(String response) {
         mCurrentState = SYMPTOM_STATE_CLINICAL;
-//        VolleyUtil.getInstance().doGet(mDataFragment.getContext(), symptomClinicalUrl, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//              response = "[{\"_id\":\"57d43de9aad0ed452f5d530f\",\"id\":\"CS-01\",\"format\":\"clinical\",\"info\":{\"title\":\"Where is the abodomen pain?\",\"name\":\"Abdomen Pain\",\"format\":\"List\",\"options\":[]}},{\"_id\":\"57d43de9aad0ed452f5d5310\",\"id\":\"CS-02\",\"format\":\"clinical\",\"info\":{\"title\":\"Did you have nausea?\",\"name\":\"Nausea\",\"format\":\"Boolean\",\"options\":[]}},{\"_id\":\"57d43de9aad0ed452f5d5311\",\"id\":\"CS-03\",\"format\":\"clinical\",\"info\":{\"title\":\"Did you vomit?\",\"name\":\"Vommiting\",\"format\":\"Boolean\",\"options\":[]}},{\"_id\":\"57d43de9aad0ed452f5d5312\",\"id\":\"CS-04\",\"format\":\"clinical\",\"info\":{\"title\":\"Nature of stool?\",\"name\":\"Stool\",\"format\":\"List\",\"options\":[\"Hard\",\"Soft\",\"Liquid\"]}}]";
-                symptomModel = gson.fromJson(response, SymptomItemModel[].class);
-                List<View> views = new ArrayList<View>();
-                mViews = new ArrayList<BaseView>();
-                for (SymptomItemModel itemModel : symptomModel) {
-                    BaseView view = widgetFactory.getViewWidget(itemModel.getFormat(), itemModel);
-                    if (view != null) {
-                        views.add(view.getView(mDataFragment.getActivity()));
-                        mViews.add(view);
+        symptomModel = gson.fromJson(response, SymptomItemModel[].class);
+        if(symptomModel != null && symptomModel.length > 0) {
+            List<View> views = new ArrayList<View>();
+            mViews = new ArrayList<BaseView>();
+            for (SymptomItemModel itemModel : symptomModel) {
+                BaseView view = widgetFactory.getViewWidget(itemModel.getFormat(), itemModel);
+                if (view != null) {
+                    views.add(view.getView(mDataFragment.getActivity()));
+                    mViews.add(view);
+                }
+            }
+
+            Button footerButton = (Button) (new NextFooterButton()).getView(mDataFragment.getActivity());
+            footerButton.setText(R.string.next);
+            footerButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    populateDataForClinicalState();
+                    if (mViews != null && mViews.size() > 0) {
+                        goToSubmitState();
+                    } else {
+                        // should never come here
+                        goToLandingState(SYMPTOM_STATE_LANDING_SUBMIT);
                     }
                 }
+            });
 
-                Button footerButton = (Button) (new NextFooterButton()).getView(mDataFragment.getActivity());
-                footerButton.setText(R.string.next);
-                footerButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        populateDataForClinicalState();
-//                        goToCaseSubmitState();
-                        if(mViews != null && mViews.size() > 0) {
-                            goToSubmitState();
-                        } else {
-                            goToCaseSubmitState();
-                        }
-                    }
-                });
+            mDataFragment.updateView(views);
 
-                mDataFragment.updateView(views);
-
-                mDataFragment.updateFooterView(footerButton);
-//            }
-//        });
+            mDataFragment.updateFooterView(footerButton);
+        } else {
+            goToLandingState(SYMPTOM_STATE_LANDING_SUBMIT);
+        }
     }
 
     public void goToSymptomDiagnosticState() {
