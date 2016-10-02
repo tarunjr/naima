@@ -9,6 +9,7 @@ public class WidgetFactory {
     public static final String WIDGET_NUMERIC = "Numeric";
     public static final String WIDGET_BOOLEAN = "Boolean";
     public static final String WIDGET_MULTIPLE_CHOICE = "List";
+    public static final String WIDGET_LANDING = "LandingTable";
     public WidgetFactory() {
     }
 
@@ -21,6 +22,8 @@ public class WidgetFactory {
             viewWidget = new ChoiceView(viewModel);
         } else if(WIDGET_MULTIPLE_CHOICE.equals(viewName)) {
             viewWidget = new MultipleChoiceView(viewModel);
+        } else if(WIDGET_LANDING.equals(viewName)) {
+            viewWidget = new LandingTableView(viewModel);
         }
 
         return viewWidget;

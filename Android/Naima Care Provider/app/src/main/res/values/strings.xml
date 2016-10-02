@@ -13,4 +13,13 @@
     <string name="next">Next</string>
     <string name="submit">Submit</string>
     <string name="done">Done</string>
+
+    <string name="landing_standard_title">Standard Title</string>
+    <string name="landing_standard_content">Standard Screen</string>
+
+    <string name="landing_combo_title">Combo Title</string>
+    <string name="landing_combo_content">Combo Screen</string>
+
+    <string name="landing_clinical_title">Clinical Title</string>
+    <string name="landing_clinical_content">Clinical Screen</string>
 </resources>

@@ -21,10 +21,12 @@ import nalanda.com.naima.models.DoctorDetails;
 import nalanda.com.naima.models.Patient;
 import nalanda.com.naima.models.Provider;
 import nalanda.com.naima.network.VolleyUtil;
+import nalanda.com.naima.viewmodel.LandingTableViewModel;
 import nalanda.com.naima.viewmodel.SymptomItemModel;
 import nalanda.com.naima.widgets.BaseView;
 import nalanda.com.naima.widgets.ComboboxView;
 import nalanda.com.naima.widgets.DoctorDetailsView;
+import nalanda.com.naima.widgets.LandingTableView;
 import nalanda.com.naima.widgets.NextFooterButton;
 import nalanda.com.naima.widgets.TwoFooterButton;
 import nalanda.com.naima.widgets.WidgetFactory;
@@ -43,13 +45,16 @@ public class SymptomFlowManager {
     private BaseDataFragment mDataFragment;
     Gson gson;
     private WidgetFactory widgetFactory;
-    public static final int SYMPTOM_STATE_STANDARD = 1;
-    public static final int SYMPTOM_STATE_COMBO = 2;
-    public static final int SYMPTOM_STATE_SINGLE_CLINICAL = 3;
-    public static final int SYMPTOM_STATE_CLINICAL = 4;
-    public static final int SYMPTOM_STATE_DIAGNOSTIC = 5;
-    public static final int SYMPTOM_STATE_SUBMIT = 6;
-    public static final int SYMPTOM_STATE_CASE_SUBMIT = 7;
+    public static final int SYMPTOM_STATE_LANDING_STANDARD = 1;
+    public static final int SYMPTOM_STATE_STANDARD = 2;
+    public static final int SYMPTOM_STATE_LANDING_COMBO = 3;
+    public static final int SYMPTOM_STATE_COMBO = 4;
+    public static final int SYMPTOM_STATE_SINGLE_CLINICAL = 5;
+    public static final int SYMPTOM_STATE_LANDING_CLINICAL = 6;
+    public static final int SYMPTOM_STATE_CLINICAL = 7;
+    public static final int SYMPTOM_STATE_DIAGNOSTIC = 8;
+    public static final int SYMPTOM_STATE_SUBMIT = 9;
+    public static final int SYMPTOM_STATE_CASE_SUBMIT = 10;
     private int mCurrentState;
 
     private SymptomItemModel[] symptomModel;
@@ -72,7 +77,8 @@ public class SymptomFlowManager {
         caseDataModel.getData().setClinical(new ArrayList<CaseClinical>());
         populatePatientData();
         populateProviderData();
-        goToSymptomStandardState();
+//        goToSymptomStandardState();
+        goToSymptomStandardLandingState();
     }
 
     private void continueStartFlow() {
@@ -99,6 +105,36 @@ public class SymptomFlowManager {
     }
 
     private void populateDataForStandardState() {
+    }
+
+    public void goToSymptomStandardLandingState() {
+        mCurrentState = SYMPTOM_STATE_LANDING_STANDARD;
+
+        LandingTableViewModel landingTableViewModel = new LandingTableViewModel();
+        landingTableViewModel.setTitle(mDataFragment.getActivity().getString(R.string.landing_standard_title));
+        landingTableViewModel.setContent(mDataFragment.getActivity().getString(R.string.landing_standard_content);
+
+        LandingTableView landingTableView =
+                (LandingTableView) widgetFactory.getViewWidget(WidgetFactory.WIDGET_LANDING, landingTableViewModel);
+
+        List<View> views = new ArrayList<View>();
+        View view = landingTableView.getView(mDataFragment.getActivity());
+
+        views.add(view);
+
+        Button footerButton = (Button) (new NextFooterButton()).getView(mDataFragment.getActivity());
+        footerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               goToSymptomStandardState();
+            }
+        });
+
+        views.add(footerButton);
+
+        mDataFragment.updateView(views);
+
+        mDataFragment.updateFooterView(footerButton);
     }
 
     public void goToSymptomStandardState() {
