@@ -43,9 +43,12 @@ public class ConditionRepository {
     ValueOperations<String,String>  valueOps = redisTemplate.opsForValue();
     Condition condition = null;
 
-    System.out.println(id);
+    String key = KeyNameSpace.ConditionNamespace + ":" + id;
+
     try {
-        String json  = valueOps.get(id);
+        String json  = valueOps.get(key);
+        if (json == null || json.length() == 0)
+          return null;
         condition = mapper.readValue(json, Condition.class);
     } catch (com.fasterxml.jackson.core.JsonProcessingException jpex) {
     } catch (java.io.IOException iox) {

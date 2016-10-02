@@ -22,38 +22,32 @@ public class OutbreakRepository {
   private List<Outbreak> outbreaks;
 
   public  OutbreakRepository() {
-      Speciality sp1 = new Speciality();
-      sp1.setId("1");
-      sp1.setName("Gastroentologist");
 
-      Speciality sp2 = new Speciality();
-      sp2.setId("4");
-      sp2.setName("ENT");
 
       Condition c1 = new Condition();
       c1.setId("1");
       c1.setName("Acid Reflux");
-      c1.setSpeciality(sp1);
+      c1.setSpeciality("1");
 
       Condition c2 = new Condition();
       c2.setId("2");
       c2.setName("Diarhea");
-      c2.setSpeciality(sp1);
+      c2.setSpeciality("1");
 
       Condition c3 = new Condition();
       c3.setId("3");
       c3.setName("Sinus");
-      c3.setSpeciality(sp2);
+      c3.setSpeciality("3");
 
       Location l1 = new Location();
       l1.setLocality("KOPARGAON");
       l1.setSubDistrict("KHED");
-      l1.setSubDistrict("PUNE");
+      l1.setDistrict("PUNE");
 
       Location l2 = new Location();
-      l2.setLocality("KOPARGAON");
+      l2.setLocality("SARJAPUR");
       l2.setSubDistrict("TUMKUR");
-      l2.setSubDistrict("BANGALORE");
+      l2.setDistrict("BANGALORE");
 
       Outbreak ob1 = new Outbreak(l1,c1);
       Outbreak ob2 = new Outbreak(l1,c2);
@@ -79,17 +73,17 @@ public class OutbreakRepository {
     }
     return outbreaks;
   }
-  public List<Outbreak> findByLocations(List<Location> locations) {
-    List<Outbreak> outbreaks = new ArrayList<Outbreak>();
+  public List<Outbreak> findByLocation(Location location) {
+      List<Outbreak> result = new ArrayList<Outbreak>();
+      System.out.println(location);
 
-    for(Location l: locations) {
       for(Outbreak ob: outbreaks) {
-          if(ob.getLocation().getLocality().equals(l.getLocality())) {
-              outbreaks.add(ob);
+          if(ob.getLocation().getLocality().equals(location.getLocality())) {
+              result.add(ob);
           }
       }
-    }
-    return outbreaks;
+
+    return result;
   }
 
 }

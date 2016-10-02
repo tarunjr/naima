@@ -28,8 +28,8 @@ public class OutbreakController {
         return outbreakService.findAll();
     }
     @RequestMapping(value="/outbreak/location",method=RequestMethod.POST, consumes="application/json")
-    public List<Outbreak> outbreakByLocation(@RequestBody List<Location> locations) {
-        return outbreakService.findByLocations(locations);
+    public List<Outbreak> outbreakByLocation(@RequestBody Location location) {
+        return outbreakService.findByLocation(location);
     }
     @RequestMapping(value="/outbreak/condition", method=RequestMethod.POST, consumes="application/json")
     public List<Outbreak> outbreakByCondition(@RequestBody List<Condition> conditions) {

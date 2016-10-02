@@ -5,7 +5,7 @@ import java.util.List;
 public class Condition {
     private String id;
     private String name;
-    private Speciality speciality;
+    private String speciality;
     private List<String> symptoms;
 
     public String getName() {
@@ -20,10 +20,10 @@ public class Condition {
     public void setId(String id) {
         this.id = id;
     }
-    public Speciality getSpeciality() {
+    public String getSpeciality() {
         return this.speciality;
     }
-    public void setSpeciality(Speciality speciality) {
+    public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
     public List<String> getSymptoms() {

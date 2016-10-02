@@ -19,8 +19,8 @@ public class OutbreakService {
     public List<Outbreak> findAll() {
         return outbreakRespository.findAll();
     }
-    public List<Outbreak> findByLocations(List<Location> locations ) {
-        return outbreakRespository.findByLocations(locations);
+    public List<Outbreak> findByLocation(Location location ) {
+        return outbreakRespository.findByLocation(location);
     }
     public List<Outbreak> findByConditions(List<Condition> conditions) {
         return outbreakRespository.findByConditions(conditions);
