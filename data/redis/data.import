@@ -6,13 +6,19 @@
  SET  CSM:1 '{"id": "1","title": "Where is the Abdomen pain?","name": "Abdomen Pain","format": "List","options": ["Upper Left", "Upper Right", "Lower abdomen"]}'
  SET  CSM:2 '{"id": "2","title": "Did you have nausea?","name": "Nausea","format": "Boolean"}'
  SET  CSM:3  '{"id": "3","title": "Did you vomit, enter ?","name": "Vomiting","format": "List","options": ["Never","Once","Twice","More"]}'
- SET  CSM:4 '{"id":  "4","title": "Nature of stool?","name": "Stool","format": "list","options": ["Hard","Soft","Liquid"]}'
+ SET  CSM:4 '{"id":  "4","title": "Nature of stool?","name": "Stool","format": "List","options": ["Hard","Soft","Liquid"]}'
+ SET  CSM:5 '{"id":  "5","title": "Is there headache?","name": "Headache","format": "boolean"}'
+ SET  CSM:6 '{"id":  "6","title": "Is there Cough?","name": "Cough","format": "boolean"}'
+ SET  CSM:7 '{"id":  "7","title": "Is there Fever?","name": "Fever","format": "boolean"}'
+
  SET  TEST:1  '{"id": "1","title": "What is the RBC count?","name": "RBC","format": "Numeric"}'
  SET  TEST:2 '{"id": "2", "title": "Enter CT Scan summary","name": "CT Scan","format": "Text"}'
  SET  TEST:3  '{"id": "3", "title": "Enter X-Ray report?","name": "X-Ray report","format": "Text"}'
  SET  TEST:4 '{"id": "4","title": "Enter Urine report","name": "Urine report","format": "Text"}'
- SET  CND:1 '{"id":"id", "name": "name", "speciality": "speciality", "symptoms": ["1","2"] }'
 
+ SET  CND:1 '{"id":"1", "name": "Acid Refux", "speciality": "Gastroentologist", "symptoms": ["1","2"] }'
+ SET  CND:2 '{"id":"2", "name": "Diarrhea", "speciality": "Gastroentologist", "symptoms": ["1","4","7"] }'
+ SET  CND:3 '{"id":"3", "name": "Sinus", "speciality": "ENR", "symptoms": ["5","6","7"] }'
 
  SADD RULE:1:ANTECEDENT  1 2
  SADD RULE:1:CONSEQUENT  3 4
