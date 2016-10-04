@@ -2,3 +2,9 @@ services/symptoms/node_modules
 
 services/symptoms/db_case_symptoms.json
 services/symptoms/db_symptoms.json
+services/cases.net/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0/tools/init.ps1
+services/cases.net/packages/
+services/cases.net/cases.net/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+services/cases.net/testClient/bin/Debug/testClient.vshost.exe.config
+services/cases.net/testClient/obj/
+services/cases.net/cases.net/obj/
