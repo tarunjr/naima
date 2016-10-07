@@ -2,8 +2,12 @@ package nalanda.com.naima.widgets;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -30,7 +34,7 @@ public class ComboboxView implements BaseView{
 
     @Override
     public View getView(Activity activity) {
-        view = activity.getLayoutInflater().inflate(R.layout.combo_input_layout, null, false);
+        view = activity.getLayoutInflater().inflate(R.layout.symptom_grid, null, false);
 
         List<String> items = new ArrayList<String>();
 
@@ -38,15 +42,19 @@ public class ComboboxView implements BaseView{
             items.add(dataViewItemModel[i].getName());
         }
 
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, R.layout.spinner_text, items);
+        final ArrayAdapter<String> symptomListAdapter =
+                new ArrayAdapter<String>(activity, R.layout.symptom_item, R.id.symptom_text, items);
+        ((GridView) view.findViewById(R.id.symptom_grid)).setAdapter(symptomListAdapter);
+        ((GridView) view.findViewById(R.id.symptom_grid)).setNumColumns(2);
+        ((GridView) view.findViewById(R.id.symptom_grid)).setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
-        spinner.setAdapter(dataAdapter);
+        ((GridView) view.findViewById(R.id.symptom_grid)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ((GridView) ComboboxView.this.view.findViewById(R.id.symptom_grid)).setItemChecked(position, true);
+                symptomListAdapter.notifyDataSetChanged();
+            }
+        });
 
         return view;
     }
@@ -57,8 +65,7 @@ public class ComboboxView implements BaseView{
     }
 
     public int getSelectedIndex() {
-        Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
-        return spinner.getSelectedItemPosition();
+        return ((GridView) view.findViewById(R.id.symptom_grid)).getCheckedItemPosition();
     }
 
     @Override

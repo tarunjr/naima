@@ -5,4 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="index_background">#80cbc4</color>
     <color name="fab_background">#546e7a</color>
+    <color name="item_checked_background">#C0C0C0</color>
+    <color name="item_background">#ffffff</color>
+    <color name="item_stroke">#C0C0C0</color>
+    <color name="item_text_background">#C0C0C0</color>
+    <color name="item_text_checked_background">#ffffff</color>
 </resources>
