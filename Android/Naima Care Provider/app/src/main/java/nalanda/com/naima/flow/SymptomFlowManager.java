@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.google.gson.Gson;
@@ -267,7 +268,12 @@ public class SymptomFlowManager {
         footerView.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToSingleSymptomState(comboboxView.getSelectedIndex());
+                int index = comboboxView.getSelectedIndex();
+                if(index >= 0) {
+                    goToSingleSymptomState(comboboxView.getSelectedIndex());
+                } else {
+                    Toast.makeText(mDataFragment.getActivity(), "Please select a sysmptom", Toast.LENGTH_LONG).show();
+                }
             }
         });
         footerView.findViewById(R.id.done).setOnClickListener(new View.OnClickListener() {
