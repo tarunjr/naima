@@ -10,18 +10,17 @@
         android:id="@+id/patient_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="15dp"
         android:text="Symptom: "
-        android:textSize="24sp"
-        android:visibility="gone"/>
+        android:textSize="24sp"/>
 
     <GridView
         android:id="@+id/symptom_grid"
         android:layout_below="@id/patient_label"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:columnWidth="50dp"
         android:gravity="center"
