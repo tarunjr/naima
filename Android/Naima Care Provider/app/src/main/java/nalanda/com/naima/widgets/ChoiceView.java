@@ -44,14 +44,12 @@ public class ChoiceView implements BaseView{
                 (AppCompatRadioButton) activity.getLayoutInflater().inflate(R.layout.radio_button, null, false);
         appCompatRadioButton.setId(R.id.yes);
         appCompatRadioButton.setText(R.string.yes);
-        appCompatRadioButton.setTextSize(24);
         radioGroup.addView(appCompatRadioButton);
 
         appCompatRadioButton =
                 (AppCompatRadioButton) activity.getLayoutInflater().inflate(R.layout.radio_button, null, false);
         appCompatRadioButton.setId(R.id.no);
         appCompatRadioButton.setText(R.string.no);
-        appCompatRadioButton.setTextSize(24);
         radioGroup.addView(appCompatRadioButton);
 
         return view;

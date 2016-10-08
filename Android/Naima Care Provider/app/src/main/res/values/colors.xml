@@ -10,4 +10,7 @@
     <color name="item_stroke">#C0C0C0</color>
     <color name="item_text_background">#C0C0C0</color>
     <color name="item_text_checked_background">#ffffff</color>
+    <color name="actionbar_background">#A0A0A0</color>
+    <color name="actionbar_title_text">#ffffff</color>
+    <color name="toolbar_color">#1976d2</color>
 </resources>
