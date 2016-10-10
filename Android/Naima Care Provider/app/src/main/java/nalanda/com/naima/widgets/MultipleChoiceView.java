@@ -49,7 +49,7 @@ public class MultipleChoiceView implements BaseView{
         ListView listView = (ListView) view.findViewById(R.id.multiple_choice);
         listView.setAdapter(dataAdapter);
 
-        customizeListView();
+//        customizeListView();
 
         return view;
     }
