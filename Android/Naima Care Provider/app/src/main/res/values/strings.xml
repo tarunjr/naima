@@ -14,15 +14,19 @@
     <string name="submit">Submit</string>
     <string name="done">Done</string>
 
-    <string name="landing_standard_title">Standard Title</string>
-    <string name="landing_standard_content">Standard Screen</string>
+    <string name="landing_standard_title">Health Profile</string>
+    <string name="landing_standard_content">Basic Health Parameters of patient</string>
+    <string name="landing_standard_buttonlabel">Add Health Profile</string>
 
-    <string name="landing_combo_title">Combo Title</string>
-    <string name="landing_combo_content">Combo Screen</string>
+    <string name="landing_combo_title">Patient Symptoms</string>
+    <string name="landing_combo_content">Symptoms patient is experiencing</string>
+    <string name="landing_combo_buttonlabel">Add Symptoms</string>
 
-    <string name="landing_clinical_title">Clinical Title</string>
-    <string name="landing_clinical_content">Clinical Screen</string>
+    <string name="landing_clinical_title">Related Symptoms</string>
+    <string name="landing_clinical_content">We found additional symptoms most likely related to the patient\'s medical condition</string>
+    <string name="landing_clinical_buttonlabel">Add Related Symptoms</string>
 
-    <string name="landing_submit_title">Submit Title</string>
-    <string name="landing_submit_content">Submit Screen</string>
+    <string name="landing_submit_title">Report Case</string>
+    <string name="landing_submit_content">We can find the right doctor based on the most likely medical condition</string>
+    <string name="landing_submit_buttonlabel">Report Case</string>
 </resources>

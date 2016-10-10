@@ -22,12 +22,14 @@ import nalanda.com.naima.models.DoctorDetails;
 import nalanda.com.naima.models.Patient;
 import nalanda.com.naima.models.Provider;
 import nalanda.com.naima.network.VolleyUtil;
+import nalanda.com.naima.viewmodel.FooterButtonModel;
 import nalanda.com.naima.viewmodel.LandingTableViewModel;
 import nalanda.com.naima.viewmodel.SymptomItemModel;
 import nalanda.com.naima.widgets.BaseView;
 import nalanda.com.naima.widgets.ComboboxView;
 import nalanda.com.naima.widgets.DoctorDetailsView;
 import nalanda.com.naima.widgets.LandingTableView;
+import nalanda.com.naima.widgets.FooterButton;
 import nalanda.com.naima.widgets.NextFooterButton;
 import nalanda.com.naima.widgets.TwoFooterButton;
 import nalanda.com.naima.widgets.WidgetFactory;
@@ -176,6 +178,28 @@ public class SymptomFlowManager {
         }
     }
 
+    private int getButtonLabel(int state) {
+        int buttonLabel = 0;
+        switch (state) {
+            case SYMPTOM_STATE_LANDING_STANDARD:
+                buttonLabel = R.string.landing_standard_buttonlabel;
+                break;
+            case SYMPTOM_STATE_LANDING_COMBO:
+                buttonLabel = R.string.landing_combo_buttonlabel;
+                break;
+            case SYMPTOM_STATE_LANDING_CLINICAL:
+                buttonLabel = R.string.landing_clinical_buttonlabel;
+                break;
+            case SYMPTOM_STATE_LANDING_SUBMIT:
+                buttonLabel = R.string.landing_submit_buttonlabel;
+                break;
+            default:
+                break;
+        }
+
+        return buttonLabel;
+    }
+
     public void goToLandingState(final int state) {
         mCurrentState = state;
 
@@ -191,7 +215,9 @@ public class SymptomFlowManager {
 
         views.add(view);
 
-        Button footerButton = (Button) (new NextFooterButton()).getView(mDataFragment.getActivity());
+        FooterButtonModel footerButtonModel = new FooterButtonModel(getButtonLabel(state));
+
+        Button footerButton = (Button) (new FooterButton(footerButtonModel)).getView(mDataFragment.getActivity());
         footerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
