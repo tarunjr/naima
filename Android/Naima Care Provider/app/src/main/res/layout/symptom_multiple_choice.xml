@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nalanda.com.naima.customwidget.CheckableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/create_item"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:background="@drawable/symptom_multiple_choice_background">
+
+    <TextView
+        android:id="@+id/multiple_choice_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:duplicateParentState="true"
+        android:gravity="center"
+        android:text="Text"
+        android:textColor="@color/symptom_multiple_choice_textcolor"
+        android:textSize="18sp" />
+
+</nalanda.com.naima.customwidget.CheckableRelativeLayout>

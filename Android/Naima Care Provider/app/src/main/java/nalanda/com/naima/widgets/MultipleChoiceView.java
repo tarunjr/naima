@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,14 +41,16 @@ public class MultipleChoiceView implements BaseView{
         ((TextView)view.findViewById(R.id.title)).setText(multipleChoiceViewModel.getTitle());
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_multiple_choice, multipleChoiceViewModel.getOptions());
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, R.layout.symptom_multiple_choice, R.id.multiple_choice_text, multipleChoiceViewModel.getOptions());
 
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
+//        // Drop down layout style - list view with radio button
+//        dataAdapter.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
 
         // attaching data adapter to spinner
-        ListView listView = (ListView) view.findViewById(R.id.multiple_choice);
-        listView.setAdapter(dataAdapter);
+        GridView gridView = (GridView) view.findViewById(R.id.multiple_choice_grid);
+        gridView.setAdapter(dataAdapter);
+        gridView.setNumColumns(2);
+        gridView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
 //        customizeListView();
 
@@ -56,11 +59,11 @@ public class MultipleChoiceView implements BaseView{
 
     @Override
     public BaseModel getClinicalData() {
-        int count = ((ListView) view.findViewById(R.id.multiple_choice)).getCount();
-        SparseBooleanArray checkedPositions = ((ListView) view.findViewById(R.id.multiple_choice)).getCheckedItemPositions();
+        int count = ((GridView) view.findViewById(R.id.multiple_choice_grid)).getCount();
+        SparseBooleanArray checkedPositions = ((GridView) view.findViewById(R.id.multiple_choice_grid)).getCheckedItemPositions();
         if(checkedPositions.size() > 0) {
             List<String> values = new ArrayList<String>();
-            ArrayAdapter<String> adapter = (ArrayAdapter<String>) ((ListView) view.findViewById(R.id.multiple_choice)).getAdapter();
+            ArrayAdapter<String> adapter = (ArrayAdapter<String>) ((GridView) view.findViewById(R.id.multiple_choice_grid)).getAdapter();
 
             for (int i = 0; i < count; i++) {
                 if (checkedPositions.get(i)) {
@@ -84,35 +87,35 @@ public class MultipleChoiceView implements BaseView{
         return multipleChoiceViewModel;
     }
 
-    private void customizeListView() {
-        ListView listView = (ListView) view.findViewById(R.id.multiple_choice);
-        listView.setOnTouchListener(new View.OnTouchListener() {
-            // Setting on Touch Listener for handling the touch inside ScrollView
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // Disallow the touch request for parent scroll on touch of child view
-                v.getParent().requestDisallowInterceptTouchEvent(true);
-                return false;
-            }
-        });
-
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null)
-            return;
-
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-        int totalHeight = 0;
-        View view = null;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            view = listAdapter.getView(i, view, listView);
-            if (i == 0)
-                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += view.getMeasuredHeight();
-        }
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-    }
+//    private void customizeListView() {
+//        GridView listView = (GridView) view.findViewById(R.id.multiple_choice_grid);
+//        listView.setOnTouchListener(new View.OnTouchListener() {
+//            // Setting on Touch Listener for handling the touch inside ScrollView
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                // Disallow the touch request for parent scroll on touch of child view
+//                v.getParent().requestDisallowInterceptTouchEvent(true);
+//                return false;
+//            }
+//        });
+//
+//        ListAdapter listAdapter = listView.getAdapter();
+//        if (listAdapter == null)
+//            return;
+//
+//        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+//        int totalHeight = 0;
+//        View view = null;
+//        for (int i = 0; i < listAdapter.getCount(); i++) {
+//            view = listAdapter.getView(i, view, listView);
+//            if (i == 0)
+//                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+//            totalHeight += view.getMeasuredHeight();
+//        }
+//        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+//        listView.setLayoutParams(params);
+//    }
 }
