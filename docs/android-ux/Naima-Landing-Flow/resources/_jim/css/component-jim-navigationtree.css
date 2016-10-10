@@ -1,0 +1,84 @@
+#navigationtree ins
+{
+    background: url("./images/jimsprite.png");
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) 
+{
+	#navigationtree ins
+	{
+	    background: url("./images/jimsprite@2x.png");
+	    background-size:256px 188px;
+	}
+}
+
+#navigationtree { list-style-type: none; height: 100%; font-family: 'OpenSans-Regular'; }
+#navigationtree li { background-position: -70px 0; background-repeat: repeat-y; line-height: 28px; min-height: 20px; white-space: nowrap; margin-left: 18px; }
+#navigationtree > li { margin-left: 0; }
+#navigationtree ins { display: inline-block; text-decoration: none; margin-right:5px; vertical-align:middle;}
+#navigationtree  ul { list-style-type: none; }
+#navigationtree li.first { padding-top: 2px; }
+#navigationtree > li:first-child  > div.top-border { display:none; }
+#navigationtree li.clicked { background: navy; border: 1px solid navy; padding: 0 2px 0 1px; color: white; }
+#navigationtree li.closed > ul { display: none; }
+#navigationtree a.current, #navigationtree .requirement-node.active { color: #21C0C0; font-family: 'OpenSans-SemiBold'; }
+#navigationtree a:hover { opacity: 0.75; }
+#navigationtree a { color: #FFFFFF; white-space: nowrap; font-size:11px;}
+#navigationtree .folder  > a { color: #21C0C0; white-space: nowrap; font-size:11px;}
+#navigationtree .requirement-node { color: #21C0C0; white-space: nowrap; font-size:11px;}
+#navigationtree .requirement-node:hover { color: #EEEEEE;}
+
+/* requirements */
+#navigationtree .requirement-node {cursor: pointer;}
+#navigationtree .requirement-field-content {margin-right: 8px; white-space: normal;}
+#navigationtree .requirement-field, #navigationtree .requirement-component { margin-left: 6px; margin-bottom: 9px; color: #DDDDDD; white-space: nowrap; font-size:11px; line-height: 16px;}
+#navigationtree .requirement-field-title {color: #AAAAAA;}
+#navigationtree .requirement-content {margin-bottom: 5px;}
+#navigationtree .requirement-component {
+    width: 115px; 
+    height: 25px;
+    margin-top: 13px;
+    margin-bottom: 16px;
+    background: #0FA7AE;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    cursor: pointer;
+    color: #282E2F;
+    font-weight: 600;
+}
+#navigationtree .requirement-component:hover {opacity:0.8;}
+
+#navigationtree ins.expand { background-position:-133px -170px;width:12px;height:14px; }
+#navigationtree .requirement-node:hover ins.expand { background-position: -160px -170px;}
+#navigationtree .requirement-node.active ins.expand {background-position: -120px -170px;}
+#navigationtree .requirement-node.active:hover ins.expand {background-position: -147px -170px;}
+
+/* start splice images */
+#navigationtree li.leaf > ins {display: none;}
+#navigationtree li.closed > ins { cursor: pointer; margin-right:12px; margin-left: 1px;}
+#navigationtree li.open > ins { background-position:-37px -34px;width:10px;height:6px; cursor: pointer; margin-right:8px; margin-left: 1px;}
+#navigationtree li.closed > ins { background-position:-47px -34px;width:6px;height:10px;}
+#navigationtree ins.folder { background-position:-81px -34px;width:12px;height:11px; }
+#navigationtree li.open > a > ins.folder { background-position:-93px -34px;width:15px;height:10px; }
+
+#navigationtree .top-border{
+    background-color: #4F4F4F;
+    height: 1px;
+    width: 100%;    
+}
+
+#navigationtree .menu_dotred{
+    background-color: #E74747;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    margin-left: 7px;
+    margin-bottom: 1px;
+}
