@@ -21,7 +21,7 @@ import nalanda.com.naima.viewmodel.SymptomItemModel;
 /**
  * Created by ps1 on 9/10/16.
  */
-public class ChoiceView implements BaseView{
+public class ChoiceView  extends GridTypeView {
     private final SymptomItemModel choiceViewModel;
     private ChoiceModel choiceModel;
     private ArrayAdapter<String> choiceAdapter;
@@ -56,6 +56,8 @@ public class ChoiceView implements BaseView{
                 choiceAdapter.notifyDataSetChanged();
             }
         });
+
+        setDynamicHeight(((GridView) view.findViewById(R.id.choice_grid)));
 
         return view;
     }

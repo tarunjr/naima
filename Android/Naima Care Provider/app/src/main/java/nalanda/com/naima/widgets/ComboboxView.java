@@ -2,11 +2,13 @@ package nalanda.com.naima.widgets;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -22,7 +24,7 @@ import nalanda.com.naima.viewmodel.SymptomItemModel;
 /**
  * Created by ps1 on 9/10/16.
  */
-public class ComboboxView implements BaseView{
+public class ComboboxView extends GridTypeView {
     private ComboboxModel comboboxModel;
     private SymptomItemModel dataViewItemModel[];
     private View view;
@@ -55,6 +57,8 @@ public class ComboboxView implements BaseView{
                 symptomListAdapter.notifyDataSetChanged();
             }
         });
+
+        setDynamicHeight(((GridView) view.findViewById(R.id.symptom_grid)));
 
         return view;
     }

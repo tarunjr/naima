@@ -24,7 +24,7 @@ import nalanda.com.naima.viewmodel.SymptomItemModel;
 /**
  * Created by ps1 on 9/10/16.
  */
-public class MultipleChoiceView implements BaseView{
+public class MultipleChoiceView extends GridTypeView {
     private MultipleChoiceModel multipleChoiceModel;
     private SymptomItemModel multipleChoiceViewModel;
     private View view;
@@ -53,6 +53,8 @@ public class MultipleChoiceView implements BaseView{
         gridView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
 //        customizeListView();
+
+        setDynamicHeight(((GridView) view.findViewById(R.id.multiple_choice_grid)));
 
         return view;
     }
