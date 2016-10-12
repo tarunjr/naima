@@ -13,4 +13,6 @@
     <color name="actionbar_background">#A0A0A0</color>
     <color name="actionbar_title_text">#ffffff</color>
     <color name="toolbar_color">#1976d2</color>
+    <color name="case_item_checked_background">#F0F0F0</color>
+    <color name="case_item_background">#ffffff</color>
 </resources>

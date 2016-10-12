@@ -23,6 +23,8 @@ public class DataInputActivity extends AppCompatActivity implements BaseDataFrag
     public static final String INPUT_EXTRA_FLOW = "Flow";
     public static final String FLOW_CREATE_CASE = "CreateCase";
     public static final String FLOW_PENDING_CASE = "PendingCase";
+    public static final String FLOW_OPEN_CASE = "OpenCase";
+    public static final String FLOW_CLOSED_CASE = "ClosedCase";
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override

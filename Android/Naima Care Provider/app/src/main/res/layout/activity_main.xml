@@ -103,7 +103,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/diagnose_item"
+            android:id="@+id/closed_item"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:layout_below="@id/pending_item">

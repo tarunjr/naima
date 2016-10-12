@@ -13,7 +13,7 @@ import java.util.List;
 
 import nalanda.com.naima.R;
 import nalanda.com.naima.activites.DataInputActivity;
-import nalanda.com.naima.flow.PendingFlowManager;
+import nalanda.com.naima.flow.CasesFlowManager;
 import nalanda.com.naima.flow.SymptomFlowManager;
 import nalanda.com.naima.widgets.BaseView;
 
@@ -144,6 +144,10 @@ public class BaseDataFragment extends Fragment {
             startCreateFlow();
         } else if(DataInputActivity.FLOW_PENDING_CASE.equals(mCurrentFlow)) {
             startPendingFlow();
+        } else if(DataInputActivity.FLOW_OPEN_CASE.equals(mCurrentFlow)) {
+            startOpenFlow();
+        } else if(DataInputActivity.FLOW_CLOSED_CASE.equals(mCurrentFlow)) {
+            startClosedFlow();
         }
     }
 
@@ -153,7 +157,17 @@ public class BaseDataFragment extends Fragment {
     }
 
     private void startPendingFlow() {
-        PendingFlowManager pendingFlowManager = new PendingFlowManager(this);
-        pendingFlowManager.startFlow();
+        CasesFlowManager casesFlowManager = new CasesFlowManager(this, CasesFlowManager.PENDING_FLOW);
+        casesFlowManager.startFlow();
+    }
+
+    private void startOpenFlow() {
+        CasesFlowManager casesFlowManager = new CasesFlowManager(this, CasesFlowManager.OPEN_FLOW);
+        casesFlowManager.startFlow();
+    }
+
+    private void startClosedFlow() {
+        CasesFlowManager casesFlowManager = new CasesFlowManager(this, CasesFlowManager.CLOSED_FLOW);
+        casesFlowManager.startFlow();
     }
 }

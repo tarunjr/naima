@@ -59,5 +59,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.open_item).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataInputActivity.class);
+                intent.putExtra(DataInputActivity.INPUT_EXTRA_FLOW, DataInputActivity.FLOW_OPEN_CASE);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.closed_item).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataInputActivity.class);
+                intent.putExtra(DataInputActivity.INPUT_EXTRA_FLOW, DataInputActivity.FLOW_CLOSED_CASE);
+                startActivity(intent);
+            }
+        });
     }
 }

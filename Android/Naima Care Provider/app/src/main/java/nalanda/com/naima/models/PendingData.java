@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by ps1 on 9/11/16.
  */
-public class CasesData {
+public class PendingData {
     private List<CasesClinical> clinical;
 
     private List<TestData> test;

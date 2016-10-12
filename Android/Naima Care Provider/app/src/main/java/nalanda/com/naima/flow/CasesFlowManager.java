@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -17,31 +16,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nalanda.com.naima.R;
+import nalanda.com.naima.adapters.CasesListAdapter;
 import nalanda.com.naima.fragment.BaseDataFragment;
-import nalanda.com.naima.models.CaseData;
-import nalanda.com.naima.models.CaseDataModel;
 import nalanda.com.naima.models.CasesDataModel;
 import nalanda.com.naima.network.VolleyUtil;
 import nalanda.com.naima.widgets.NextFooterButton;
-import nalanda.com.naima.widgets.WidgetFactory;
 
 /**
  * Created by ps1 on 9/11/16.
  */
-public class PendingFlowManager {
-    public static final String pendingUrl = "http://ec2-54-175-135-100.compute-1.amazonaws.com:3000/cases/pending/cp/PR-01";
+public class CasesFlowManager {
+    public static final int PENDING_FLOW = 1;
+    public static final int OPEN_FLOW = 2;
+    public static final int CLOSED_FLOW = 3;
+
+    public static final String pendingUrl =
+            "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases?status=pending&owner=careprovider&ownerid=PR-01";
+    public static final String openUrl =
+            "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases?status=open&owner=careprovider&ownerid=PR-01";
+    public static final String closedUrl =
+            "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases?status=closed&owner=careprovider&ownerid=PR-01";
+
+    private String url;
+    private String title;
     private BaseDataFragment mDataFragment;
     Gson gson;
     View view;
 
-    public PendingFlowManager(BaseDataFragment dataFragment) {
+    public CasesFlowManager(BaseDataFragment dataFragment, int flow) {
         mDataFragment = dataFragment;
+
+        initFlow(flow);
 
         gson = new Gson();
     }
 
+    private void initFlow(int flow) {
+        switch (flow) {
+            case PENDING_FLOW:
+                url = pendingUrl;
+                title = "Pending Cases";
+                break;
+            case OPEN_FLOW:
+                url = openUrl;
+                title = "Open Cases";
+                break;
+            case CLOSED_FLOW:
+                url = closedUrl;
+                title = "Closed Cases";
+                break;
+        }
+    }
+
     public void startFlow() {
-        VolleyUtil.getInstance().doGet(mDataFragment.getContext(), pendingUrl, new Response.Listener<String>() {
+        VolleyUtil.getInstance().doGet(mDataFragment.getContext(), url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 getView(mDataFragment.getActivity(), response);
@@ -68,22 +96,14 @@ public class PendingFlowManager {
 
         view = activity.getLayoutInflater().inflate(R.layout.pending_list, null, false);
 
-        ((TextView)view.findViewById(R.id.title)).setText("List of Pending cases");
-
-        List<String> items = new ArrayList<String>();
-        for (CasesDataModel casesDataModel : caseDataModels) {
-            items.add(casesDataModel.getPatient().getName() + " - " + casesDataModel.getProvider().getName());
-        }
+        ((TextView)view.findViewById(R.id.title)).setText(title);
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(activity, R.layout.spinner_text, items);
-
-//        // Drop down layout style - list view with radio button
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
+        CasesListAdapter casesListAdapter = new CasesListAdapter(activity, R.layout.case_item, caseDataModels);
 
         // attaching data adapter to spinner
         ListView listView = (ListView) view.findViewById(R.id.pending_items_list);
-        listView.setAdapter(dataAdapter);
+        listView.setAdapter(casesListAdapter);
 
         customizeListView();
 
