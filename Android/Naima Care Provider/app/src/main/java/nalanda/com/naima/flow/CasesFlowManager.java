@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.google.gson.Gson;
@@ -20,7 +22,10 @@ import nalanda.com.naima.adapters.CasesListAdapter;
 import nalanda.com.naima.fragment.BaseDataFragment;
 import nalanda.com.naima.models.CasesDataModel;
 import nalanda.com.naima.network.VolleyUtil;
+import nalanda.com.naima.widgets.BaseView;
+import nalanda.com.naima.widgets.CaseDetailView;
 import nalanda.com.naima.widgets.NextFooterButton;
+import nalanda.com.naima.widgets.WidgetFactory;
 
 /**
  * Created by ps1 on 9/11/16.
@@ -91,7 +96,7 @@ public class CasesFlowManager {
         });
     }
 
-    public View getView(Activity activity, String response) {
+    public View getView(final Activity activity, String response) {
         CasesDataModel[] caseDataModels = gson.fromJson(response, CasesDataModel[].class);
 
         view = activity.getLayoutInflater().inflate(R.layout.pending_list, null, false);
@@ -99,13 +104,20 @@ public class CasesFlowManager {
         ((TextView)view.findViewById(R.id.title)).setText(title);
 
         // Creating adapter for spinner
-        CasesListAdapter casesListAdapter = new CasesListAdapter(activity, R.layout.case_item, caseDataModels);
+        final CasesListAdapter casesListAdapter = new CasesListAdapter(activity, R.layout.case_item, caseDataModels);
 
         // attaching data adapter to spinner
         ListView listView = (ListView) view.findViewById(R.id.pending_items_list);
         listView.setAdapter(casesListAdapter);
 
         customizeListView();
+
+        ((ListView) view.findViewById(R.id.pending_items_list)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                goToDetailedFlow(casesListAdapter.getItem(position));
+            }
+        });
 
         return view;
     }
@@ -140,5 +152,16 @@ public class CasesFlowManager {
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
+    }
+
+    private void goToDetailedFlow(CasesDataModel casesDataModel) {
+        CaseDetailView caseDetailView = new CaseDetailView(casesDataModel);
+
+        List<View> viewList = new ArrayList<View>();
+        View view = caseDetailView.getView(mDataFragment.getActivity());
+
+        viewList.add(view);
+
+        mDataFragment.updateView(viewList);
     }
 }

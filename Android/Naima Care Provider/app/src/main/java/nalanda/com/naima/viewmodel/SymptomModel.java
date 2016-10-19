@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by ps1 on 9/10/16.
  */
-public class SymptomModel extends BaseViewModel{
+public class SymptomModel implements BaseViewModel{
 
     List<SymptomItemModel> symptomItemList;
 

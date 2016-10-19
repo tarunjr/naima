@@ -5,7 +5,7 @@ import nalanda.com.naima.widgets.FooterButton;
 /**
  * Created by ps1 on 9/10/16.
  */
-public class FooterButtonModel {
+public class FooterButtonModel implements BaseViewModel{
     private int buttonLabel;
 
     public FooterButtonModel() {

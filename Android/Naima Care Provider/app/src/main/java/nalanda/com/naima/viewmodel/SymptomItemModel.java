@@ -7,7 +7,7 @@ import java.util.List;
  * Created by ps1 on 9/10/16.
  */
 
-public class SymptomItemModel extends BaseViewModel {
+public class SymptomItemModel implements BaseViewModel {
     private String id;
 
     private String format;

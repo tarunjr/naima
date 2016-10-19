@@ -3,7 +3,7 @@ package nalanda.com.naima.viewmodel;
 /**
  * Created by ps1 on 10/2/16.
  */
-public class LandingTableViewModel extends BaseViewModel {
+public class LandingTableViewModel implements BaseViewModel {
     private String title;
 
     private String content;
