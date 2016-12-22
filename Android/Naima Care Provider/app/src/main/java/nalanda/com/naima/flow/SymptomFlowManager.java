@@ -40,13 +40,13 @@ import nalanda.com.naima.widgets.WidgetFactory;
 public class SymptomFlowManager {
     // Diagnostic service endpoint.
     // Updated by Tarun on 1st Oct with latest EC2 instance URL
-    public static final String symptomStandardUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/vitalstats";
-    public static final String symptomClinicalUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/symptoms";
-    public static final String symptomDiagnosticUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/symptoms/tests";
-    public static final String associatedSymptomsUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8080/associatedsymptoms";
+    public static final String symptomStandardUrl = "http://ec2-52-91-112-26.compute-1.amazonaws.com:8080/vitalstats";
+    public static final String symptomClinicalUrl = "http://ec2-52-91-112-26.compute-1.amazonaws.com:8080/symptoms";
+    public static final String symptomDiagnosticUrl = "http://ec2-52-91-112-26.compute-1.amazonaws.com:8080/symptoms/tests";
+    public static final String associatedSymptomsUrl = "http://ec2-52-91-112-26.compute-1.amazonaws.com:8080/associatedsymptoms";
 
     // Cases Service endpoing
-    public static final String caseNewUrl = "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases/new";
+    public static final String caseNewUrl = "http://ec2-52-91-112-26.compute-1.amazonaws.com:8082/api/v1/cases/new";
 
     public static final String JSON_CONTENT_TYPE = "application/json";
 

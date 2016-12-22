@@ -36,11 +36,11 @@ public class CasesFlowManager {
     public static final int CLOSED_FLOW = 3;
 
     public static final String pendingUrl =
-            "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases?status=pending&owner=careprovider&ownerid=PR-01";
+            "http://ec2-52-91-112-26.compute-1.amazonaws.com:8082/api/v1/cases?status=pending&owner=careprovider&ownerid=PR-01";
     public static final String openUrl =
-            "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases?status=open&owner=careprovider&ownerid=PR-01";
+            "http://ec2-52-91-112-26.compute-1.amazonaws.com:8082/api/v1/cases?status=open&owner=careprovider&ownerid=PR-01";
     public static final String closedUrl =
-            "http://ec2-54-161-5-199.compute-1.amazonaws.com:8082/api/v1/cases?status=closed&owner=careprovider&ownerid=PR-01";
+            "http://ec2-52-91-112-26.compute-1.amazonaws.com:8082/api/v1/cases?status=closed&owner=careprovider&ownerid=PR-01";
 
     private String url;
     private String title;
