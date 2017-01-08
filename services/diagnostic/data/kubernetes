@@ -1,0 +1,1 @@
+kubectl run diagnostic --image=naima/diagnostic:v1.0 --env="SPRING_PROFILES_ACTIVE=kubernetes" --port=8080
